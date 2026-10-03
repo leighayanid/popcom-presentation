@@ -68,6 +68,37 @@ node scripts/export.mjs [oppo|pass] [dark|light] [pdf|png]
 The same override works on a URL — `?theme=pass` — if you want to hand someone a
 link that opens in one particular theme. Neither control appears in an export.
 
+### Presenting on a machine with no Node
+
+```bash
+npm run offline        # OPPO Gold
+npm run offline:pass   # Bataeño Pass
+```
+
+This writes `offline/`, about 2.4 MB, which can be copied to a USB stick or any
+other machine. On that machine, double-click **`Present.cmd`** — the browser
+opens on the deck. Nothing has to be installed: the server beside it,
+`serve-offline.ps1`, is PowerShell talking to .NET's `HttpListener`, so there is
+no Node, no npm and no Python on the far end, and no administrator rights.
+
+A server is not avoidable. The build is an ES-module single-page app, and
+Chromium refuses to load those over `file://`, so opening `index.html` by hand
+gives a blank page. What the launcher gives up in exchange is nothing: clicks,
+transitions, the ambient motion, presenter mode (`/presenter/1`) and the
+overview all work exactly as in `npm run dev`.
+
+The one thing the bundle does not carry is its fonts — Inter, Fraunces and the
+rest still come from Google Fonts at display time. With a live connection the
+deck is pixel-identical to dev. Fully offline, the headings fall back to a
+system face and set visibly wider. If the venue has no WiFi, present from the
+exported PDF instead, or self-host the fonts into `public/`.
+
+A PDF needs nothing at all, of course, and loses only the motion:
+
+```bash
+npm run export
+```
+
 ## Structure
 
 | File | What it holds |
@@ -79,6 +110,8 @@ link that opens in one particular theme. Neither control appears in an export.
 | `composables/exporting.ts` | Detects an export/print render |
 | `setup/main.ts` | Seeds dark as the first-run default |
 | `scripts/export.mjs` | Export in a chosen theme; names the output file |
+| `scripts/offline.mjs` | Build the portable `offline/` bundle |
+| `scripts/serve-offline.ps1` | The no-install server that bundle is presented from |
 | `layouts/` | `cover`, `section`, `figure`, `statement` |
 | `components/` | One component per animated diagram, plus the brand and settings components |
 | `public/` | The marks and the card, served at the deck's root |

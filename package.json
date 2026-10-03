@@ -9,7 +9,9 @@
     "export:light": "node scripts/export.mjs oppo light",
     "export:pass": "node scripts/export.mjs pass dark",
     "export:pass:light": "node scripts/export.mjs pass light",
-    "export:png": "node scripts/export.mjs oppo dark png"
+    "export:png": "node scripts/export.mjs oppo dark png",
+    "offline": "node scripts/offline.mjs oppo",
+    "offline:pass": "node scripts/offline.mjs pass"
   },
   "dependencies": {
     "@slidev/cli": "^53.0.0",
