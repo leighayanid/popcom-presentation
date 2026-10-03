@@ -1,12 +1,20 @@
 <script setup lang="ts">
-// Cover: slow-drifting constellation of citizen dots behind the title block.
-const dots = Array.from({ length: 16 }, (_, i) => ({
-  x: (i * 83) % 160,
-  y: (i * 37) % 90,
-  r: 0.8 + ((i * 13) % 5) * 0.28,
-  d: 5 + ((i * 7) % 11),
-  o: 0.1 + ((i * 11) % 6) * 0.04,
-}))
+/**
+ * Cover: a handful of slow-breathing citizen dots.
+ *
+ * Placed by hand rather than generated, so they sit in the margins the title
+ * block and the mark rail leave empty instead of scattering across the words.
+ * x/y are viewBox units (160 x 90); o is opacity, d seeds the breathe delay.
+ */
+const dots = [
+  { x: 24, y: 13, r: 1.5, o: 0.26, d: 0 },
+  { x: 58, y: 8, r: 1.0, o: 0.16, d: 3 },
+  { x: 97, y: 19, r: 1.8, o: 0.22, d: 6 },
+  { x: 88, y: 47, r: 1.1, o: 0.14, d: 2 },
+  { x: 113, y: 71, r: 1.6, o: 0.2, d: 8 },
+  { x: 142, y: 81, r: 1.0, o: 0.13, d: 5 },
+  { x: 19, y: 80, r: 1.3, o: 0.18, d: 10 },
+]
 </script>
 
 <template>
