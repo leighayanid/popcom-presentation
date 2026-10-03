@@ -177,34 +177,6 @@ CLICK 1 — the order is signed. CLICK 2 — the hand-over. CLICK 3 — registra
 -->
 
 ---
-layout: figure
-clicks: 4
----
-
-<div class="oppo-eyebrow">II.4 &#183; The Pass in hand</div>
-
-# What a Bataeño is actually issued
-
-<div class="fig"><PassCard :step="$clicks" /></div>
-
-<!--
-Before the systems and the indices, this is the object itself — what a registered
-Bataeño carries.
-
-CLICK 1 — Issued by the Province. The provincial seal and this Office's mark sit
-together on the face. Under EO 26, the Pass is ours to carry.
-
-CLICK 2 — One name, province-wide. A single citizen identity across the identified
-use cases.
-
-CLICK 3 — Dambana ng Kagitingan, the sea turtle, the contour of the province. The
-card says where its holder is from before it says anything else.
-
-CLICK 4 — And the point to carry forward: the card is the visible half. The registry
-and the digital system behind it are the other. We come back to that in IV.D.
--->
-
----
 layout: section
 num: III
 transition: slide-up

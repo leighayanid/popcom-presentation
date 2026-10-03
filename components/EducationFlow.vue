@@ -39,7 +39,10 @@ const AHD = [
           <stop offset="50%" stop-color="var(--oppo-gold)" stop-opacity="0.55" />
           <stop offset="100%" stop-color="var(--oppo-gold)" stop-opacity="0" />
         </linearGradient>
-        <clipPath id="ef-cardclip"><rect x="-54" y="-34" width="108" height="68" rx="7" /></clipPath>
+        <clipPath id="ef-cardclip"><rect x="-62" y="-39" width="124" height="78" rx="8" /></clipPath>
+        <filter id="ef-cardlift" x="-40%" y="-40%" width="180%" height="190%">
+          <feDropShadow dx="0" dy="6" stdDeviation="7" flood-color="#000" flood-opacity="0.42" />
+        </filter>
         <path id="ef-tap" d="M 318 120 C 360 120, 380 120, 404 120" />
         <path id="ef-rec1" d="M 506 99 H 596" />
         <path id="ef-rec2" d="M 506 137 H 596" />
@@ -76,22 +79,17 @@ const AHD = [
         <path d="M 176 116 L 182 120 L 176 124" fill="none" stroke="var(--oppo-gold)" stroke-width="1.3" />
       </g>
       <g class="card-wrap" :class="{ on: shown(1) }" transform="translate(250 120)">
-        <g class="card">
-          <rect x="-54" y="-34" width="108" height="68" rx="7" fill="var(--oppo-bg-2)"
-            stroke="var(--oppo-gold)" stroke-width="1.4" />
-          <rect x="-44" y="-24" width="28" height="22" rx="3" fill="var(--oppo-gold-fig)" opacity="0.85" />
-          <circle cx="-30" cy="-16" r="4" fill="var(--oppo-panel-2)" />
-          <path d="M -37 -5 C -37 -11, -23 -11, -23 -5 Z" fill="var(--oppo-panel-2)" />
-          <line x1="-8" y1="-20" x2="44" y2="-20" stroke="var(--oppo-ink-2)" stroke-width="1.6" />
-          <line x1="-8" y1="-12" x2="34" y2="-12" stroke="var(--oppo-ink-3)" stroke-width="1.6" />
-          <line x1="-8" y1="-4" x2="40" y2="-4" stroke="var(--oppo-ink-3)" stroke-width="1.6" />
-          <text x="-44" y="16" class="card-t">BATAE&#209;O PASS</text>
-          <text x="-44" y="27" class="card-s">STUDENT REGISTRATION</text>
+        <g class="card" filter="url(#ef-cardlift)">
           <g clip-path="url(#ef-cardclip)">
-            <rect class="sheen" x="-54" y="-34" width="34" height="68" fill="url(#ef-sheen)" />
+            <image href="/bataeno-pass-card.jpg" x="-62" y="-39" width="124" height="78"
+              preserveAspectRatio="xMidYMid slice" />
+            <rect class="sheen" x="-62" y="-39" width="56" height="78" fill="url(#ef-sheen)" />
           </g>
+          <rect x="-62" y="-39" width="124" height="78" rx="8" fill="none"
+            stroke="var(--oppo-gold)" stroke-width="1.2" />
         </g>
-        <text y="58" text-anchor="middle" class="node-n">PASS ISSUED</text>
+        <text y="62" text-anchor="middle" class="node-n">PASS ISSUED</text>
+        <text y="75" text-anchor="middle" class="card-s2">STUDENT REGISTRATION</text>
       </g>
 
       <!-- 3. the tap -->
@@ -213,8 +211,7 @@ const AHD = [
 .card { transform: scaleX(0.04); transform-box: fill-box; transform-origin: center;
   transition: transform 720ms cubic-bezier(.3,1.35,.45,1); }
 .card-wrap.on .card { transform: scaleX(1); }
-.card-t { font-size: 8.5px; font-weight: 800; letter-spacing: 0.1em; fill: var(--oppo-gold); }
-.card-s { font-size: 6px; font-weight: 650; letter-spacing: 0.14em; fill: var(--oppo-ink-3); }
+.card-s2 { font-size: 7px; font-weight: 650; letter-spacing: 0.18em; fill: var(--oppo-ink-3); }
 .sheen { animation: oppo-sheen 4.4s ease-in-out infinite; transform-box: fill-box; transform-origin: center; }
 
 .tap-ring { animation: tap 2.2s ease-out infinite; transform-box: fill-box; transform-origin: center; }
