@@ -52,12 +52,15 @@ withDefaults(defineProps<{
 .is-sm .oppo, .is-sm .pass { height: 26px; }
 .is-md .oppo, .is-md .pass { height: 56px; }
 .is-lg .oppo, .is-lg .pass { height: 92px; }
-.is-xl .oppo { height: 150px; }
-.is-xl .pass { height: 92px; }
+.is-xl .oppo, .is-xl .pass { height: 112px; }
 
 /* the Pass roundel is open line-work, so it reads a touch small next to the
    seal's solid disc at the same pixel height */
 .pass { transform: scale(1.1); }
+
+/* on the cover the two marks are stacked and read against each other
+   directly, so they are matched outright rather than optically */
+.is-xl .pass { transform: none; }
 
 .divider { width: 1px; align-self: stretch; background: var(--h-22); }
 
