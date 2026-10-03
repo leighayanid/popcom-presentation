@@ -1,0 +1,23 @@
+{
+  "name": "slidev",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "build": "slidev build",
+    "dev": "slidev --open",
+    "export": "node scripts/export.mjs oppo dark",
+    "export:light": "node scripts/export.mjs oppo light",
+    "export:pass": "node scripts/export.mjs pass dark",
+    "export:pass:light": "node scripts/export.mjs pass light",
+    "export:png": "node scripts/export.mjs oppo dark png"
+  },
+  "dependencies": {
+    "@slidev/cli": "^53.0.0",
+    "@slidev/theme-default": "latest",
+    "@slidev/theme-seriph": "latest",
+    "vue": "^3.5.33"
+  },
+  "devDependencies": {
+    "playwright-chromium": "^1.63.0"
+  }
+}

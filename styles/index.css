@@ -1,0 +1,555 @@
+/* ===========================================================
+   OPPO — Bataan flag-ceremony deck theme
+   Two themes from one token set. Dark is the base (the deck's
+   default, and what a projector wants); `html.light` overrides
+   every token for the paper theme. Nothing below :root/html.light
+   names a colour directly.
+
+   Components reference tokens even inside SVG presentation
+   attributes (fill="var(--oppo-gold)"), which resolve fine in
+   the browsers Slidev targets.
+   =========================================================== */
+
+:root {
+  /* ---------- surfaces ---------- */
+  --oppo-bg-0: #061120;
+  --oppo-bg-1: #0a1a2f;   /* the stage */
+  --oppo-bg-2: #12263f;   /* panels, chips, cards */
+  --oppo-bg-3: #1b3453;   /* raised blocks */
+  --oppo-panel-2: #0d2038; /* node / emblem fill */
+  --oppo-shaft: #132940;
+  --oppo-neutral: #3b5a7d; /* inert marks, e.g. the headcount tally */
+  --grad-a: #16304f;
+  --grad-b: #0f2b46;
+
+  /* ---------- ink ---------- */
+  --oppo-ink: #f4f7fb;
+  --oppo-ink-1: #c6d6e8;
+  --oppo-ink-2: #a9bdd6;
+  --oppo-ink-3: #6b839f;
+  --oppo-ink-4: #4a5e76;
+  --oppo-ink-5: #2b3f58;
+
+  /* ---------- brand accent ----------
+     -gold is the ink role (text, thin strokes); -fig is the
+     large decorative fill role. Identical in dark, split in
+     light, where a fill-bright amber cannot carry text. */
+  --oppo-gold: #f2b33d;
+  --oppo-gold-fig: #f2b33d;
+  --oppo-gold-dim: #8a6a26;
+  --oppo-on-accent: #0b1a10;   /* ink for text sitting ON --oppo-gold */
+
+  /* ---------- data series (validated against this surface) ---------- */
+  --s1: #c98500;
+  --s2: #3987e5;
+  --s3: #199e70;
+  --s4: #d95926;
+  --s5: #9085e9;
+  --s6: #008300;
+  --chart-bar: #c98500;
+
+  /* ---------- strategy-map reproduction ---------- */
+  --sm-const: #6aa84f;
+  --sm-fin: #e0a82e;
+  --sm-proc: #d4615c;
+  --sm-org: #3d6fa8;
+  --sm-edge: rgba(255, 255, 255, 0.18);
+  --oppo-on-color: #0b1a10;
+  --oppo-on-color-muted: #8097af;
+
+  /* ---------- gold rules, by alpha ---------- */
+  --g-90: rgba(242, 179, 61, 0.9);
+  --g-65: rgba(242, 179, 61, 0.65);
+  --g-60: rgba(242, 179, 61, 0.6);
+  --g-50: rgba(242, 179, 61, 0.5);
+  --g-45: rgba(242, 179, 61, 0.45);
+  --g-40: rgba(242, 179, 61, 0.4);
+  --g-35: rgba(242, 179, 61, 0.35);
+  --g-30: rgba(242, 179, 61, 0.3);
+  --g-28: rgba(242, 179, 61, 0.28);
+  --g-20: rgba(242, 179, 61, 0.2);
+  --g-16: rgba(242, 179, 61, 0.16);
+  --g-13: rgba(242, 179, 61, 0.13);
+  --g-07: rgba(242, 179, 61, 0.07);
+
+  /* ---------- neutral hairlines, by alpha ---------- */
+  --h-30: rgba(169, 189, 214, 0.3);
+  --h-25: rgba(169, 189, 214, 0.25);
+  --h-22: rgba(169, 189, 214, 0.22);
+  --h-20: rgba(169, 189, 214, 0.2);
+  --h-18: rgba(169, 189, 214, 0.18);
+  --h-16: rgba(169, 189, 214, 0.16);
+  --h-14: rgba(169, 189, 214, 0.14);
+  --h-11: rgba(169, 189, 214, 0.11);
+  --h-10: rgba(169, 189, 214, 0.1);
+  --h-05: rgba(169, 189, 214, 0.05);
+
+  /* ---------- series rules, by alpha ---------- */
+  --s2-80: rgba(57, 135, 229, 0.8);
+  --s2-60: rgba(57, 135, 229, 0.6);
+  --s2-50: rgba(57, 135, 229, 0.5);
+  --s2-45: rgba(57, 135, 229, 0.45);
+  --s3-90: rgba(25, 158, 112, 0.9);
+  --s3-40: rgba(25, 158, 112, 0.4);
+  --s5-45: rgba(144, 133, 233, 0.45);
+
+}
+
+html.light {
+  /* ---------- surfaces ---------- */
+  --oppo-bg-0: #e4ebf4;
+  --oppo-bg-1: #f6f8fc;
+  --oppo-bg-2: #ffffff;
+  --oppo-bg-3: #e9eff7;
+  --oppo-panel-2: #ffffff;
+  --oppo-shaft: #eef3fa;
+  --oppo-neutral: #b4c6da;
+  --grad-a: #e6edf7;
+  --grad-b: #eef3fa;
+
+  /* ---------- ink ---------- */
+  --oppo-ink: #0c1b2b;
+  --oppo-ink-1: #24405c;
+  --oppo-ink-2: #3d5a79;
+  --oppo-ink-3: #5a6f87;
+  --oppo-ink-4: #75889d;
+  --oppo-ink-5: #c3d0de;
+
+  /* ---------- brand accent ---------- */
+  --oppo-gold: #9c6f0a;      /* 4.2:1 on paper — carries text */
+  --oppo-gold-fig: #d9961a;  /* decorative fills only */
+  --oppo-gold-dim: #caa45e;
+  --oppo-on-accent: #fffaf0;   /* the accent is dark here, so this flips */
+
+  /* ---------- data series (light column, validated on #f6f8fc) ---------- */
+  --s1: #eda100;
+  --s2: #2a78d6;
+  --s3: #1baf7a;
+  --s4: #eb6834;
+  --s5: #4a3aa7;
+  --s6: #008300;
+  --chart-bar: #b07d00;
+
+  /* ---------- strategy-map reproduction (the official pastels) ---------- */
+  --sm-const: #93c47d;
+  --sm-fin: #f3c662;
+  --sm-proc: #ea9999;
+  --sm-org: #7da7e8;
+  --sm-edge: rgba(12, 27, 43, 0.16);
+  --oppo-on-color: #0b1a10;
+  --oppo-on-color-muted: #4e6277;
+
+  /* ---------- gold rules ---------- */
+  --g-90: rgba(156, 111, 10, 0.9);
+  --g-65: rgba(156, 111, 10, 0.65);
+  --g-60: rgba(156, 111, 10, 0.6);
+  --g-50: rgba(156, 111, 10, 0.5);
+  --g-45: rgba(156, 111, 10, 0.45);
+  --g-40: rgba(156, 111, 10, 0.4);
+  --g-35: rgba(156, 111, 10, 0.38);
+  --g-30: rgba(156, 111, 10, 0.34);
+  --g-28: rgba(156, 111, 10, 0.32);
+  --g-20: rgba(156, 111, 10, 0.24);
+  --g-16: rgba(156, 111, 10, 0.2);
+  --g-13: rgba(217, 150, 26, 0.16);
+  --g-07: rgba(156, 111, 10, 0.08);
+
+  /* ---------- neutral hairlines ---------- */
+  --h-30: rgba(45, 72, 102, 0.34);
+  --h-25: rgba(45, 72, 102, 0.28);
+  --h-22: rgba(45, 72, 102, 0.25);
+  --h-20: rgba(45, 72, 102, 0.22);
+  --h-18: rgba(45, 72, 102, 0.2);
+  --h-16: rgba(45, 72, 102, 0.18);
+  --h-14: rgba(45, 72, 102, 0.16);
+  --h-11: rgba(45, 72, 102, 0.14);
+  --h-10: rgba(45, 72, 102, 0.12);
+  --h-05: rgba(45, 72, 102, 0.07);
+
+  /* ---------- series rules ---------- */
+  --s2-80: rgba(42, 120, 214, 0.8);
+  --s2-60: rgba(42, 120, 214, 0.6);
+  --s2-50: rgba(42, 120, 214, 0.55);
+  --s2-45: rgba(42, 120, 214, 0.5);
+  --s3-90: rgba(27, 175, 122, 0.95);
+  --s3-40: rgba(27, 175, 122, 0.55);
+  --s5-45: rgba(74, 58, 167, 0.5);
+
+}
+
+
+/* ===========================================================
+   Theme 2 — BATAEÑO PASS
+   The Pass card's own palette, lifted from the artwork in
+   public/: the Bataan navy field (#003476), the wordmark green
+   (#83cb05), and the circuit-trace cyan of the Pass mark.
+
+   Scoped on html[data-deck-theme='pass'] (set by
+   composables/deck-theme.ts) and split by Slidev's own
+   dark/light class, so the two axes compose:
+
+     :not(.light)  →  navy stage, cyan accent
+     .light        →  paper stage, deep-cyan accent
+
+   Both blocks are specificity (0,2,1), above the OPPO blocks
+   above them, and their selectors are mutually exclusive — so
+   the cascade here does not depend on source order. Anything
+   left undeclared (the strategy-map pastels, which reproduce an
+   official document and are not ours to re-brand) falls through
+   to the OPPO values.
+   =========================================================== */
+
+html[data-deck-theme='pass']:not(.light) {
+  /* ---------- surfaces ---------- */
+  --oppo-bg-0: #00142e;
+  --oppo-bg-1: #002a5e;   /* the stage — the card field, one step deeper */
+  --oppo-bg-2: #073a78;
+  --oppo-bg-3: #0f4a90;
+  --oppo-panel-2: #052f64;
+  --oppo-shaft: #0a3870;
+  --oppo-neutral: #3f6fa8;
+  --grad-a: #0b3f80;
+  --grad-b: #06305f;
+
+  /* ---------- ink ---------- */
+  --oppo-ink: #eef6ff;
+  --oppo-ink-1: #c3dcf5;
+  --oppo-ink-2: #a3c6e8;
+  --oppo-ink-3: #7097c5;
+  --oppo-ink-4: #4e74a0;
+  --oppo-ink-5: #2b4e78;
+
+  /* ---------- brand accent ----------
+     The Pass mark's cyan takes the gold's ink role; the green
+     stays a figure colour (--s1), where it is at its best. */
+  --oppo-gold: #4fd6ff;
+  --oppo-gold-fig: #3ad0f5;
+  --oppo-gold-dim: #1f6d8c;
+  --oppo-on-accent: #04203f;
+
+  /* ---------- data series (validated on #002a5e) ---------- */
+  --s1: #9ade2e;
+  --s2: #5aa8f5;
+  --s3: #35d2d8;
+  --s4: #e0682a;
+  --s5: #f087c8;
+  --s6: #3fd07e;
+  --chart-bar: #9ade2e;
+
+  --oppo-on-color: #04203f;
+  --oppo-on-color-muted: #86a9ce;
+
+  /* ---------- accent rules, by alpha ---------- */
+  --g-90: rgba(79, 214, 255, 0.9);
+  --g-65: rgba(79, 214, 255, 0.65);
+  --g-60: rgba(79, 214, 255, 0.6);
+  --g-50: rgba(79, 214, 255, 0.5);
+  --g-45: rgba(79, 214, 255, 0.45);
+  --g-40: rgba(79, 214, 255, 0.4);
+  --g-35: rgba(79, 214, 255, 0.35);
+  --g-30: rgba(79, 214, 255, 0.3);
+  --g-28: rgba(79, 214, 255, 0.28);
+  --g-20: rgba(79, 214, 255, 0.2);
+  --g-16: rgba(79, 214, 255, 0.16);
+  --g-13: rgba(79, 214, 255, 0.13);
+  --g-07: rgba(79, 214, 255, 0.07);
+
+  /* ---------- neutral hairlines ---------- */
+  --h-30: rgba(163, 198, 232, 0.3);
+  --h-25: rgba(163, 198, 232, 0.25);
+  --h-22: rgba(163, 198, 232, 0.22);
+  --h-20: rgba(163, 198, 232, 0.2);
+  --h-18: rgba(163, 198, 232, 0.18);
+  --h-16: rgba(163, 198, 232, 0.16);
+  --h-14: rgba(163, 198, 232, 0.14);
+  --h-11: rgba(163, 198, 232, 0.11);
+  --h-10: rgba(163, 198, 232, 0.1);
+  --h-05: rgba(163, 198, 232, 0.06);
+
+  /* ---------- series rules ---------- */
+  --s2-80: rgba(90, 168, 245, 0.8);
+  --s2-60: rgba(90, 168, 245, 0.6);
+  --s2-50: rgba(90, 168, 245, 0.5);
+  --s2-45: rgba(90, 168, 245, 0.45);
+  --s3-90: rgba(53, 210, 216, 0.9);
+  --s3-40: rgba(53, 210, 216, 0.4);
+  --s5-45: rgba(240, 135, 200, 0.45);
+}
+
+html[data-deck-theme='pass'].light {
+  /* ---------- surfaces ---------- */
+  --oppo-bg-0: #dde9f8;
+  --oppo-bg-1: #f4f8fd;
+  --oppo-bg-2: #ffffff;
+  --oppo-bg-3: #e4eefa;
+  --oppo-panel-2: #ffffff;
+  --oppo-shaft: #edf4fc;
+  --oppo-neutral: #adc6e0;
+  --grad-a: #e2edfb;
+  --grad-b: #eef5fd;
+
+  /* ---------- ink ---------- */
+  --oppo-ink: #04254a;
+  --oppo-ink-1: #0d3f6e;
+  --oppo-ink-2: #2a5885;
+  --oppo-ink-3: #4a6e94;
+  --oppo-ink-4: #6d8aab;
+  --oppo-ink-5: #c2d4e8;
+
+  /* ---------- brand accent ----------
+     The card cyan cannot carry text on paper, so the ink role
+     steps down to a deep cyan (6.3:1) and the bright one is
+     kept for decorative fills — the same split the gold makes. */
+  --oppo-gold: #06647f;
+  --oppo-gold-fig: #32b9f0;
+  --oppo-gold-dim: #7fb6cd;
+  --oppo-on-accent: #f2fbff;
+
+  /* ---------- data series (validated on #f4f8fd) ---------- */
+  --s1: #6ba800;
+  --s2: #1c72c9;
+  --s3: #0f93b0;
+  --s4: #c74d16;
+  --s5: #a8327f;
+  --s6: #0a6b50;
+  --chart-bar: #4f7a00;
+
+  --oppo-on-color: #04203f;
+  --oppo-on-color-muted: #456682;
+
+  /* ---------- accent rules ---------- */
+  --g-90: rgba(6, 100, 127, 0.9);
+  --g-65: rgba(6, 100, 127, 0.65);
+  --g-60: rgba(6, 100, 127, 0.6);
+  --g-50: rgba(6, 100, 127, 0.5);
+  --g-45: rgba(6, 100, 127, 0.45);
+  --g-40: rgba(6, 100, 127, 0.4);
+  --g-35: rgba(6, 100, 127, 0.38);
+  --g-30: rgba(6, 100, 127, 0.34);
+  --g-28: rgba(6, 100, 127, 0.32);
+  --g-20: rgba(6, 100, 127, 0.24);
+  --g-16: rgba(6, 100, 127, 0.2);
+  --g-13: rgba(50, 185, 240, 0.18);
+  --g-07: rgba(6, 100, 127, 0.08);
+
+  /* ---------- neutral hairlines ---------- */
+  --h-30: rgba(14, 55, 99, 0.34);
+  --h-25: rgba(14, 55, 99, 0.28);
+  --h-22: rgba(14, 55, 99, 0.25);
+  --h-20: rgba(14, 55, 99, 0.22);
+  --h-18: rgba(14, 55, 99, 0.2);
+  --h-16: rgba(14, 55, 99, 0.18);
+  --h-14: rgba(14, 55, 99, 0.16);
+  --h-11: rgba(14, 55, 99, 0.14);
+  --h-10: rgba(14, 55, 99, 0.12);
+  --h-05: rgba(14, 55, 99, 0.07);
+
+  /* ---------- series rules ---------- */
+  --s2-80: rgba(28, 114, 201, 0.8);
+  --s2-60: rgba(28, 114, 201, 0.6);
+  --s2-50: rgba(28, 114, 201, 0.55);
+  --s2-45: rgba(28, 114, 201, 0.5);
+  --s3-90: rgba(15, 147, 176, 0.95);
+  --s3-40: rgba(15, 147, 176, 0.55);
+  --s5-45: rgba(168, 50, 127, 0.5);
+}
+
+/* ---------- stage ---------- */
+.slidev-layout {
+  background:
+    radial-gradient(130% 90% at 50% -20%, var(--grad-a) 0%, transparent 60%),
+    radial-gradient(80% 60% at 100% 110%, var(--grad-b) 0%, transparent 55%),
+    var(--oppo-bg-1);
+  color: var(--oppo-ink);
+  font-family: Inter, ui-sans-serif, system-ui, sans-serif;
+  font-feature-settings: "cv05" 1, "ss01" 1;
+  padding: 2.4rem 3.2rem;
+  overflow: hidden;
+  position: relative;
+  transition: background-color 320ms ease, color 320ms ease;
+}
+
+/* faint survey grid behind everything */
+.slidev-layout::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(to right, var(--h-05) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--h-05) 1px, transparent 1px);
+  background-size: 58px 58px;
+  mask-image: radial-gradient(100% 80% at 50% 40%, #000 0%, transparent 78%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.slidev-layout > * { position: relative; z-index: 1; }
+
+.slidev-layout h1,
+.slidev-layout h2,
+.slidev-layout h3 {
+  color: var(--oppo-ink);
+  font-weight: 700;
+  letter-spacing: -0.022em;
+  line-height: 1.06;
+}
+
+.slidev-layout h1 { font-size: 2.6rem; margin-bottom: 0.25rem; }
+.slidev-layout h2 { font-size: 1.65rem; }
+.slidev-layout p,
+.slidev-layout li { color: var(--oppo-ink-2); line-height: 1.5; }
+.slidev-layout strong { color: var(--oppo-ink); font-weight: 650; }
+.slidev-layout a { color: var(--oppo-gold); }
+
+/* ---------- shared bits ---------- */
+.oppo-eyebrow {
+  font-size: 0.72rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--oppo-gold);
+  font-weight: 650;
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+}
+.oppo-eyebrow::after {
+  content: "";
+  height: 1px;
+  flex: 1;
+  background: linear-gradient(to right, var(--g-28), transparent);
+}
+
+.oppo-kicker {
+  font-size: 0.78rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--oppo-ink-3);
+  font-weight: 600;
+}
+
+.oppo-card {
+  background: var(--oppo-bg-2);
+  border: 1px solid var(--h-14);
+  border-radius: 14px;
+  padding: 0.95rem 1.1rem;
+}
+
+.oppo-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.68rem;
+  font-weight: 650;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 0.22rem 0.6rem;
+  border-radius: 999px;
+  border: 1px solid var(--g-28);
+  color: var(--oppo-gold);
+  background: var(--g-07);
+}
+
+.oppo-fig-note {
+  font-size: 0.72rem;
+  color: var(--oppo-ink-3);
+}
+
+.tnum { font-variant-numeric: tabular-nums; }
+
+/* a slide title that carries a mark beside it (EO 26, IV.D) */
+.title-with-mark {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+}
+.title-with-mark h1 { margin: 0; }
+.title-mark {
+  flex: none;
+  height: 44px;
+  width: auto;
+  display: block;
+}
+
+/* centred eyebrows (statement slides) drop the trailing rule */
+.oppo-statement .oppo-eyebrow { justify-content: center; }
+.oppo-statement .oppo-eyebrow::after { display: none; }
+
+/* ---------- click transitions ---------- */
+.slidev-layout .slidev-vclick-target {
+  transition:
+    opacity 420ms cubic-bezier(0.22, 1, 0.36, 1),
+    transform 520ms cubic-bezier(0.22, 1, 0.36, 1),
+    filter 420ms ease;
+}
+.slidev-layout .slidev-vclick-hidden {
+  opacity: 0;
+  transform: translateY(10px);
+  filter: blur(2px);
+}
+
+/* ---------- ambient keyframes used by the diagram components ---------- */
+@keyframes oppo-dash { to { stroke-dashoffset: -1000; } }
+@keyframes oppo-pulse-ring {
+  0%   { r: 10; opacity: 0.55; }
+  100% { r: 34; opacity: 0; }
+}
+@keyframes oppo-bob {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-2.5px); }
+}
+@keyframes oppo-breathe {
+  0%, 100% { opacity: 0.35; }
+  50%      { opacity: 0.95; }
+}
+@keyframes oppo-spin { to { transform: rotate(360deg); } }
+@keyframes oppo-sheen {
+  0%   { transform: translateX(-120%) skewX(-18deg); }
+  60%  { transform: translateX(240%) skewX(-18deg); }
+  100% { transform: translateX(240%) skewX(-18deg); }
+}
+@keyframes oppo-heartbeat {
+  0%, 100%   { transform: scale(1); }
+  14%        { transform: scale(1.11); }
+  28%        { transform: scale(1); }
+  42%        { transform: scale(1.07); }
+  56%        { transform: scale(1); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .slidev-layout *,
+  .slidev-layout *::before,
+  .slidev-layout *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+  }
+}
+
+/* ===========================================================
+   Brand constants — the Bataeño Pass marks' own colours.
+
+   These are deliberately OUTSIDE the themed token sets. A logo
+   does not re-colour with the deck; the wordmark green is the
+   wordmark green on paper and on a projector alike. Only the
+   deck's chrome around them changes. Sampled from the artwork
+   in public/.
+   =========================================================== */
+:root {
+  --bp-navy:       #003476;  /* the card field */
+  --bp-navy-deep:  #002a60;
+  --bp-green:      #83cb05;  /* "Bataeño" wordmark */
+  --bp-green-lit:  #52d208;  /* the mark's gradient, green end */
+  --bp-aqua:       #3affff;  /* the mark's gradient, middle */
+  --bp-sky:        #32b9f0;  /* "PASS" */
+  --bp-blue:       #249efb;  /* the mark's gradient, blue end */
+}
+
+/* a mark sitting on its own, at whatever size the slide gives it */
+.brand-mark { display: block; height: 100%; width: auto; object-fit: contain; }
+
+/* the OPPO seal is a white disc; on the dark stages it wants a rim
+   rather than floating as a bright circle */
+.brand-seal {
+  border-radius: 50%;
+  box-shadow: 0 0 0 1px var(--h-20), 0 6px 22px rgba(0, 0, 0, 0.28);
+}
+html.light .brand-seal { box-shadow: 0 0 0 1px var(--h-14), 0 4px 14px rgba(12, 27, 43, 0.12); }
