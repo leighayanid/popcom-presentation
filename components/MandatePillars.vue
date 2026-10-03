@@ -215,13 +215,13 @@ const tailTop = (f: Fn) => LEAD_TOP + f.lead.length * LEAD_STEP + 3
   transition: opacity 520ms ease, transform 560ms cubic-bezier(.22, 1, .36, 1); }
 .words.on { opacity: 1; transform: translateY(0); }
 
-.lead { font-size: 14.5px; font-weight: 750; letter-spacing: 0.005em; }
-.tail { font-size: 12.5px; fill: var(--oppo-ink-2); }
+.lead { font-size: 16px; font-weight: 750; letter-spacing: 0.005em; }
+.tail { font-size: 14px; fill: var(--oppo-ink-2); }
 
 .base { opacity: 0.25; transition: opacity 620ms ease; }
 .base.on { opacity: 1; }
-.base-t { font-size: 11.5px; font-weight: 750; letter-spacing: 0.17em; fill: var(--oppo-gold); }
-.base-s { font-size: 10px; letter-spacing: 0.07em; fill: var(--oppo-ink-3); }
+.base-t { font-size: 13px; font-weight: 750; letter-spacing: 0.17em; fill: var(--oppo-gold); }
+.base-s { font-size: 11.5px; letter-spacing: 0.07em; fill: var(--oppo-ink-2); }
 
 @media (prefers-reduced-motion: reduce) {
   .halo.on { animation: none; }

@@ -65,10 +65,10 @@ withDefaults(defineProps<{
 .divider { width: 1px; align-self: stretch; background: var(--h-22); }
 
 .cap {
-  font-size: 0.6rem;
+  font-size: 0.74rem;
   letter-spacing: 0.16em;
   text-transform: uppercase;
-  color: var(--oppo-ink-4);
+  color: var(--oppo-ink-3);
   font-weight: 600;
 }
 </style>

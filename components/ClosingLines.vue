@@ -78,16 +78,16 @@ const LINES = [
 </template>
 
 <style scoped>
-.cl { display: flex; flex-direction: column; gap: 0.85rem; }
+.cl { display: flex; flex-direction: column; gap: 1.9rem; }
 
 .line {
-  display: flex; align-items: center; gap: 1rem;
+  display: flex; align-items: center; gap: 1.4rem;
   opacity: 0; transform: translateX(-18px);
   transition: opacity 620ms cubic-bezier(.22, 1, .36, 1), transform 680ms cubic-bezier(.22, 1, .36, 1);
 }
 .line.on { opacity: 1; transform: translateX(0); }
 
-.ico { width: 54px; height: 54px; flex: none; }
+.ico { width: 88px; height: 88px; flex: none; }
 .ping { animation: oppo-pulse-ring 2.8s ease-out infinite; }
 
 .was { opacity: 1; transition: opacity 620ms ease 240ms; }
@@ -97,7 +97,7 @@ const LINES = [
 .num { font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 22px; font-weight: 600; fill: var(--oppo-ink-3); }
 .beat { animation: oppo-heartbeat 2.4s ease-in-out infinite; transform-box: fill-box; transform-origin: center; }
 
-.line p { font-size: 1.5rem; font-weight: 400; color: var(--oppo-ink-2); letter-spacing: -0.01em; }
+.line p { font-size: 2rem; font-weight: 400; color: var(--oppo-ink-2); letter-spacing: -0.01em; }
 .was-w { color: var(--oppo-ink-3); }
 .now-w { color: var(--oppo-gold); font-weight: 650; }
 </style>

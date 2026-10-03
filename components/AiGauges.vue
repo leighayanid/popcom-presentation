@@ -127,21 +127,25 @@ const ADVOCACY = [
   opacity: 0; transform: translateY(16px);
   transition: opacity 560ms ease, transform 620ms cubic-bezier(.22, 1, .36, 1);
   border-top: 2px solid var(--g-35);
-  padding-top: 0.7rem;
+  padding-top: 1rem;
 }
 .panel.on { opacity: 1; transform: translateY(0); }
 
 .p-head { display: flex; gap: 0.6rem; align-items: flex-start; margin-bottom: 0.7rem; }
-.p-head h3 { font-size: 1rem; font-weight: 700; color: var(--oppo-ink); line-height: 1.2; }
-.p-sub { font-size: 0.7rem; color: var(--oppo-ink-3); margin-top: 0.12rem; }
-.p-foot { font-size: 0.7rem; color: var(--oppo-ink-3); margin-top: 0.6rem; font-style: italic; }
+/* The three headings run to one or two lines. A two-line box on all of
+   them keeps the subtitles on one baseline across the row. */
+.p-head h3 { font-size: 1.3rem; font-weight: 700; color: var(--oppo-ink); line-height: 1.2; min-height: 2.4em; }
+.p-sub { font-size: 0.96rem; color: var(--oppo-ink-2); margin-top: 0.12rem; }
+.p-foot { font-size: 0.86rem; color: var(--oppo-ink-2); margin-top: 0.6rem; font-style: italic; }
 
 .gauges { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.7rem; margin-top: 0.4rem; }
 .gauge { text-align: center; }
-.gauge svg { width: 100%; max-width: 108px; height: auto; }
-.g-val { font-size: 1rem; font-weight: 800; color: var(--oppo-gold); margin-top: -0.1rem; }
-.g-label { font-size: 0.72rem; color: var(--oppo-ink-1); line-height: 1.25; margin-top: 0.15rem; }
-.g-note { font-size: 0.58rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--oppo-ink-3); }
+.gauge svg { width: 100%; max-width: 190px; height: auto; }
+.g-val { font-size: 1.5rem; font-weight: 800; color: var(--oppo-gold); margin-top: -0.1rem; }
+/* one- and two-line labels sit in the same box so the FASTER notes below
+   them stay on a shared baseline across the three gauges */
+.g-label { font-size: 1rem; color: var(--oppo-ink-1); line-height: 1.25; margin-top: 0.15rem; min-height: 2.5em; }
+.g-note { font-size: 0.72rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--oppo-ink-2); }
 
 .scanbox { position: relative; overflow: hidden; }
 .scanline {
@@ -155,10 +159,10 @@ const ADVOCACY = [
   85%  { opacity: 1; }
   100% { top: 100%; opacity: 0; }
 }
-.scanbox ul { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 0.42rem; }
+.scanbox ul { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 0.62rem; }
 .scanbox li {
   display: flex; gap: 0.5rem; align-items: flex-start;
-  font-size: 0.82rem; line-height: 1.3; color: var(--oppo-ink-1);
+  font-size: 1.15rem; line-height: 1.35; color: var(--oppo-ink-1);
   opacity: 0; transform: translateX(-10px);
   transition: opacity 460ms ease, transform 500ms ease;
 }
@@ -166,7 +170,7 @@ const ADVOCACY = [
 .dot { width: 5px; height: 5px; border-radius: 50%; background: var(--oppo-gold); margin-top: 0.42rem; flex: none; }
 
 .caution {
-  margin-top: 0.7rem; font-size: 0.72rem; font-weight: 650; color: var(--oppo-gold);
+  margin-top: 0.9rem; font-size: 1rem; font-weight: 650; color: var(--oppo-gold);
   border-left: 2px solid var(--g-50); padding-left: 0.55rem;
   opacity: 0; transition: opacity 520ms ease 400ms;
 }

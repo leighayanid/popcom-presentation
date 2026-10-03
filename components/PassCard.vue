@@ -169,10 +169,10 @@ const visibleSpots = computed(() => SPOTS.filter(s => shown(s.n)))
 
 figcaption {
   margin-top: 0.7rem;
-  font-size: 0.6rem;
+  font-size: 0.74rem;
   letter-spacing: 0.16em;
   text-transform: uppercase;
-  color: var(--oppo-ink-4);
+  color: var(--oppo-ink-3);
   font-weight: 600;
 }
 .sep { opacity: 0.5; margin: 0 0.3rem; }
@@ -206,8 +206,8 @@ figcaption {
   font-weight: 800;
   font-variant-numeric: tabular-nums;
 }
-.note-t { font-size: 0.98rem; font-weight: 650; color: var(--oppo-ink); letter-spacing: -0.012em; }
-.note-b { margin: 0.22rem 0 0; font-size: 0.8rem; line-height: 1.52; color: var(--oppo-ink-2); }
+.note-t { font-size: 1.12rem; font-weight: 650; color: var(--oppo-ink); letter-spacing: -0.012em; }
+.note-b { margin: 0.22rem 0 0; font-size: 0.95rem; line-height: 1.52; color: var(--oppo-ink-2); }
 
 .behind {
   margin-top: 1.25rem;
@@ -220,7 +220,7 @@ figcaption {
 .behind p {
   margin: 0;
   font-family: Fraunces, serif;
-  font-size: 0.96rem;
+  font-size: 1.08rem;
   line-height: 1.5;
   color: var(--oppo-ink-1);
 }

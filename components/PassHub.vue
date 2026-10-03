@@ -191,7 +191,7 @@ const owned = computed(() => props.step >= 3)
   50%      { opacity: 1; }
 }
 .lbl {
-  font-size: 0.86rem;
+  font-size: 1rem;
   font-weight: 600;
   line-height: 1.15;
   color: var(--oppo-ink-1);
@@ -203,7 +203,7 @@ const owned = computed(() => props.step >= 3)
   margin: 0.8rem 0 0;
   padding-left: 0.8rem;
   border-left: 2px solid var(--g-40);
-  font-size: 0.76rem;
+  font-size: 0.92rem;
   line-height: 1.45;
   max-width: 48rem;
   text-wrap: pretty;
@@ -313,7 +313,7 @@ const owned = computed(() => props.step >= 3)
 
 .plinth-copy { flex: 1; min-width: 0; }
 .plinth-k {
-  font-size: 0.7rem;
+  font-size: 0.86rem;
   font-weight: 700;
   letter-spacing: 0.2em;
   text-transform: uppercase;
@@ -321,7 +321,7 @@ const owned = computed(() => props.step >= 3)
 }
 .plinth-t {
   margin-top: 0.2rem;
-  font-size: 0.95rem;
+  font-size: 1.08rem;
   line-height: 1.3;
   color: var(--oppo-ink);
   font-weight: 600;
@@ -337,9 +337,9 @@ const owned = computed(() => props.step >= 3)
 }
 .pn-l {
   margin-top: 0.2rem;
-  font-size: 0.68rem;
+  font-size: 0.84rem;
   line-height: 1.3;
-  color: var(--oppo-ink-3);
+  color: var(--oppo-ink-2);
 }
 
 /* ---------------------------------------------------------- the registry */
@@ -366,7 +366,7 @@ const owned = computed(() => props.step >= 3)
   background: var(--oppo-bg-2);
 }
 .p-k {
-  font-size: 0.62rem;
+  font-size: 0.78rem;
   font-weight: 750;
   letter-spacing: 0.18em;
   text-transform: uppercase;
@@ -375,7 +375,7 @@ const owned = computed(() => props.step >= 3)
 .p-t {
   margin-top: 0.22rem;
   text-wrap: balance;
-  font-size: 0.88rem;
+  font-size: 1.02rem;
   font-weight: 650;
   line-height: 1.25;
   color: var(--oppo-ink);
@@ -383,9 +383,9 @@ const owned = computed(() => props.step >= 3)
 .p-s {
   margin-top: auto;
   padding-top: 0.25rem;
-  font-size: 0.73rem;
+  font-size: 0.88rem;
   line-height: 1.35;
-  color: var(--oppo-ink-3);
+  color: var(--oppo-ink-2);
 }
 
 .cap {
@@ -413,7 +413,7 @@ const owned = computed(() => props.step >= 3)
   stroke-linejoin: round;
 }
 .cap-k {
-  font-size: 1.05rem;
+  font-size: 1.18rem;
   font-weight: 800;
   letter-spacing: -0.01em;
   color: var(--oppo-gold);
@@ -421,7 +421,7 @@ const owned = computed(() => props.step >= 3)
 .cap-t {
   margin-top: 0.15rem;
   text-wrap: balance;
-  font-size: 0.75rem;
+  font-size: 0.9rem;
   line-height: 1.35;
   color: var(--oppo-ink-2);
 }

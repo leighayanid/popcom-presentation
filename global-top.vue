@@ -17,6 +17,18 @@ onMounted(() => applyDeckTheme())
 
 const settingsOpen = ref(false)
 
+// The controls are projected along with the slide, so they fade out once the
+// mouse settles and come back the moment it moves. Presenting is a long stretch
+// of no pointer activity, so in practice they are gone for the whole talk.
+const idle = ref(false)
+let idleTimer: ReturnType<typeof setTimeout> | undefined
+
+function wake() {
+  idle.value = false
+  clearTimeout(idleTimer)
+  idleTimer = setTimeout(() => { idle.value = true }, 2500)
+}
+
 // ',' is the usual "settings" key and Slidev binds nothing to it. Ignored while
 // typing into a field, and while the page itself is open (it stops its own
 // keys from reaching the window).
@@ -27,13 +39,21 @@ function onKey(e: KeyboardEvent) {
   settingsOpen.value = !settingsOpen.value
 }
 
-onMounted(() => window.addEventListener('keydown', onKey))
-onBeforeUnmount(() => window.removeEventListener('keydown', onKey))
+onMounted(() => {
+  window.addEventListener('keydown', onKey)
+  window.addEventListener('mousemove', wake, { passive: true })
+  wake()
+})
+onBeforeUnmount(() => {
+  window.removeEventListener('keydown', onKey)
+  window.removeEventListener('mousemove', wake)
+  clearTimeout(idleTimer)
+})
 </script>
 
 <template>
   <template v-if="!hidden">
-    <div class="deck-controls">
+    <div class="deck-controls" :class="{ idle: idle && !settingsOpen }">
       <button
         class="gear"
         type="button"
@@ -64,7 +84,9 @@ onBeforeUnmount(() => window.removeEventListener('keydown', onKey))
   display: flex;
   align-items: center;
   gap: 0.55rem;
+  transition: opacity 420ms ease;
 }
+.deck-controls.idle { opacity: 0; pointer-events: none; }
 
 .gear {
   display: grid;

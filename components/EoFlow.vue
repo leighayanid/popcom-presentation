@@ -118,8 +118,8 @@ const litUpTo = computed(() => {
 .dot { transition: fill 500ms ease; }
 .ping { animation: oppo-pulse-ring 2.4s ease-out infinite; }
 
-.st-year { font-size: 10px; font-weight: 750; letter-spacing: 0.2em; fill: var(--oppo-gold); }
-.st-title { font-size: 12px; font-weight: 650; fill: var(--oppo-ink); }
+.st-year { font-size: 12px; font-weight: 750; letter-spacing: 0.2em; fill: var(--oppo-gold); }
+.st-title { font-size: 15px; font-weight: 650; fill: var(--oppo-ink); }
 
 .seal {
   opacity: 0;
@@ -128,7 +128,7 @@ const litUpTo = computed(() => {
 }
 .seal.on { opacity: 1; transform: translate(400px, 180px) scale(1) rotate(-8deg); }
 .seal-t { font-size: 12px; font-weight: 800; letter-spacing: 0.1em; fill: var(--oppo-gold); }
-.seal-s { font-size: 8px; font-weight: 650; letter-spacing: 0.16em; fill: var(--oppo-ink-2); }
+.seal-s { font-size: 8.5px; font-weight: 650; letter-spacing: 0.16em; fill: var(--oppo-ink-2); }
 .shock { animation: shock 2.8s ease-out infinite; transform-box: fill-box; transform-origin: center; }
 @keyframes shock {
   0%   { transform: scale(1); opacity: 0.7; }
@@ -142,7 +142,7 @@ const litUpTo = computed(() => {
 
 .reg { opacity: 0; transition: opacity 500ms ease; }
 .reg.on { opacity: 1; }
-.reg-l { font-size: 9px; font-weight: 700; letter-spacing: 0.16em; fill: var(--oppo-ink-2); }
+.reg-l { font-size: 11px; font-weight: 700; letter-spacing: 0.16em; fill: var(--oppo-ink-2); }
 .reg.on .reg-fill { animation: reg-fill 3.6s ease-in-out infinite; }
 @keyframes reg-fill {
   0%   { width: 0; }
@@ -156,6 +156,6 @@ const litUpTo = computed(() => {
   transition: opacity 520ms ease, transform 520ms cubic-bezier(.22,1,.36,1);
 }
 .card.on { opacity: 1; transform: translateY(0); }
-.card-t { font-size: 0.78rem; font-weight: 700; color: var(--oppo-gold); margin-bottom: 0.2rem; }
-.card-b { font-size: 0.74rem; line-height: 1.4; color: var(--oppo-ink-2); }
+.card-t { font-size: 0.95rem; font-weight: 700; color: var(--oppo-gold); margin-bottom: 0.2rem; }
+.card-b { font-size: 0.9rem; line-height: 1.4; color: var(--oppo-ink-2); }
 </style>

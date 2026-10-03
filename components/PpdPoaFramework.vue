@@ -263,9 +263,9 @@ function lineY(c: Card, h: number, y: number) {
 
 .goal { opacity: 0.3; transition: opacity 620ms ease; }
 .goal.on { opacity: 1; }
-.goal-t { font-size: 12.5px; fill: var(--oppo-ink-1); }
+.goal-t { font-size: 13.5px; fill: var(--oppo-ink-1); }
 .goal-t .hl { font-weight: 750; fill: var(--oppo-gold); }
-.goal-k { font-size: 9px; font-weight: 700; letter-spacing: 0.24em; fill: var(--oppo-ink-3); }
+.goal-k { font-size: 10px; font-weight: 700; letter-spacing: 0.24em; fill: var(--oppo-ink-2); }
 
 .rise { opacity: 0; transition: opacity 560ms ease; }
 .rise.on { opacity: 1; }
@@ -286,8 +286,8 @@ function lineY(c: Card, h: number, y: number) {
 .num { font-size: 21px; font-weight: 800; fill: var(--oppo-on-color); }
 .num.sm { font-size: 17px; }
 
-.c-t { font-size: 12.5px; font-weight: 700; letter-spacing: 0.035em; fill: var(--oppo-ink); }
-.c-s { font-size: 10px; fill: var(--oppo-ink-3); letter-spacing: 0.01em; }
+.c-t { font-size: 13.5px; font-weight: 700; letter-spacing: 0.035em; fill: var(--oppo-ink); }
+.c-s { font-size: 11px; fill: var(--oppo-ink-2); letter-spacing: 0.01em; }
 
 .props { opacity: 0; transition: opacity 520ms ease 420ms; }
 .props.on { opacity: 1; }

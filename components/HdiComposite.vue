@@ -166,16 +166,16 @@ const HY = 92
   0%   { transform: scale(1); opacity: 0.7; }
   100% { transform: scale(1.5); opacity: 0; }
 }
-.comp-t { font-size: 20px; font-weight: 800; letter-spacing: 0.04em; fill: var(--oppo-ink); }
+.comp-t { font-size: 23px; font-weight: 800; letter-spacing: 0.04em; fill: var(--oppo-ink); }
 .comp-pp { fill: var(--oppo-gold); }
-.comp-s { font-size: 7.5px; font-weight: 700; letter-spacing: 0.24em; fill: var(--oppo-ink-2); }
-.comp-cap { font-size: 10px; font-weight: 600; fill: var(--oppo-ink-2); letter-spacing: 0.04em; }
-.comp-cap2 { font-size: 9px; fill: var(--oppo-ink-3); letter-spacing: 0.04em; }
+.comp-s { font-size: 9px; font-weight: 700; letter-spacing: 0.24em; fill: var(--oppo-ink-2); }
+.comp-cap { font-size: 12px; font-weight: 600; fill: var(--oppo-ink-2); letter-spacing: 0.04em; }
+.comp-cap2 { font-size: 11px; fill: var(--oppo-ink-2); letter-spacing: 0.04em; }
 
 .dim { opacity: 0; transform: translateY(22px); transform-box: view-box;
   transition: opacity 560ms ease, transform 660ms cubic-bezier(.22,1,.36,1); }
 .dim.on { opacity: 1; transform: translateY(0); }
-.dim-n { font-size: 10.5px; font-weight: 750; letter-spacing: 0.14em; fill: var(--oppo-ink); }
+.dim-n { font-size: 12.5px; font-weight: 750; letter-spacing: 0.14em; fill: var(--oppo-ink); }
 
 .orbit { animation: oppo-spin 22s linear infinite; transform-box: fill-box; transform-origin: center; }
 .ecg { stroke-dasharray: 74; animation: ecg 2.6s ease-in-out infinite; }
@@ -191,7 +191,7 @@ const HY = 92
 
 .credit { opacity: 0; transition: opacity 460ms ease; }
 .credit.on { opacity: 1; }
-.credit-t { font-size: 7px; font-weight: 800; letter-spacing: 0.06em; fill: var(--oppo-gold); }
+.credit-t { font-size: 8.5px; font-weight: 800; letter-spacing: 0.06em; fill: var(--oppo-gold); }
 .credit-ping { animation: chip-ping2 2.6s ease-out infinite; transform-box: fill-box; transform-origin: center; }
 @keyframes chip-ping2 {
   0%   { transform: scale(1); opacity: 0.75; }
@@ -207,11 +207,11 @@ const HY = 92
 }
 .cell.on { opacity: 1; transform: translateY(0); }
 .cell.dimmed { opacity: 0.42; filter: saturate(0.4); }
-.cell-k { font-size: 0.58rem; font-weight: 750; letter-spacing: 0.18em; color: var(--oppo-ink-3); margin-top: 0.25rem; }
-.cell-p { font-size: 0.76rem; font-weight: 650; color: var(--oppo-ink); line-height: 1.3; }
-.cell-i { font-size: 0.72rem; color: var(--oppo-ink-2); line-height: 1.3; }
+.cell-k { font-size: 0.74rem; font-weight: 750; letter-spacing: 0.18em; color: var(--oppo-ink-2); margin-top: 0.25rem; }
+.cell-p { font-size: 0.95rem; font-weight: 650; color: var(--oppo-ink); line-height: 1.3; }
+.cell-i { font-size: 0.88rem; color: var(--oppo-ink-2); line-height: 1.3; }
 .cell-o {
-  font-size: 0.68rem; font-weight: 650; color: var(--oppo-gold); margin-top: 0.3rem;
+  font-size: 0.85rem; font-weight: 650; color: var(--oppo-gold); margin-top: 0.3rem;
   opacity: 0; transition: opacity 460ms ease 200ms;
 }
 .cell-o.on { opacity: 1; }

@@ -169,8 +169,8 @@ function chev(y: number, h: number) {
 .vision, .foot { opacity: 0; transition: opacity 600ms ease; }
 .vision.on, .foot.on { opacity: 1; }
 
-.vis-k { font-size: 8.5px; font-weight: 750; letter-spacing: 0.2em; fill: var(--oppo-gold); }
-.vis-t { font-size: 10px; fill: var(--oppo-ink-1); }
+.vis-k { font-size: 9.5px; font-weight: 750; letter-spacing: 0.2em; fill: var(--oppo-gold); }
+.vis-t { font-size: 11.5px; fill: var(--oppo-ink-1); }
 .map-t { font-size: 16px; font-weight: 800; letter-spacing: 0.06em; fill: var(--oppo-ink); }
 .map-s { font-size: 12px; font-weight: 650; letter-spacing: 0.18em; fill: var(--oppo-gold); }
 
@@ -179,7 +179,9 @@ function chev(y: number, h: number) {
   transition: opacity 560ms ease, transform 640ms cubic-bezier(.22,1,.36,1);
 }
 .band.on { opacity: 1; transform: translateY(0); }
-.band-l { font-size: 8px; font-weight: 750; letter-spacing: 0.1em; fill: var(--oppo-ink-1); }
+/* tracking is tight here because "CONSTITUENCY" has to clear the first box
+   of its own band at this size */
+.band-l { font-size: 9.5px; font-weight: 750; letter-spacing: 0.035em; fill: var(--oppo-ink-1); }
 
 .box {
   opacity: 0; transform: translateY(26px);
@@ -193,7 +195,7 @@ function chev(y: number, h: number) {
 .halo { opacity: 0; transition: opacity 420ms ease 160ms; }
 .box.mine .halo { opacity: 1; }
 
-.box-t { font-size: 9.4px; font-weight: 600; fill: var(--oppo-on-color); letter-spacing: 0.002em;
+.box-t { font-size: 10.6px; font-weight: 600; fill: var(--oppo-on-color); letter-spacing: 0.002em;
   transition: fill 500ms ease; }
 
 .chip { opacity: 0; transition: opacity 400ms ease 260ms; }
@@ -206,7 +208,7 @@ function chev(y: number, h: number) {
 
 .focus-note {
   display: flex; align-items: center; gap: 0.8rem;
-  font-size: 0.8rem; color: var(--oppo-ink-2); line-height: 1.4;
+  font-size: 0.95rem; color: var(--oppo-ink-2); line-height: 1.4;
   opacity: 0; transform: translateY(8px);
   transition: opacity 500ms ease 200ms, transform 500ms ease 200ms;
 }

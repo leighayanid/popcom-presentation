@@ -27,10 +27,14 @@ defineProps<{ num?: string }>()
   margin-bottom: 0.6rem;
 }
 .section-body :deep(h1) { font-size: 3rem; }
+/* The sweep travels through the vertical centre, which is exactly where the
+   heading and its subtitle sit — a hairline crossing live text reads as a
+   defect on a projector. It is held to the right of the copy column instead
+   (which runs to ~60% at its widest), so the motion stays ambient. */
 .rule-sweep {
   position: absolute;
-  left: 0; top: 50%;
-  height: 1px; width: 100%;
+  left: 63%; top: 50%;
+  height: 1px; width: 37%;
   background: linear-gradient(to right, transparent, var(--g-35), transparent);
   animation: sweep 7s ease-in-out infinite;
 }

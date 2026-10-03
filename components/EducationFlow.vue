@@ -199,19 +199,19 @@ const AHD = [
   opacity: 0; transition: opacity 560ms ease;
 }
 .node.on, .flow.on, .records.on, .partners.on, .ahd.on, .card-wrap.on { opacity: 1; }
-.node-n { font-size: 9.5px; font-weight: 750; letter-spacing: 0.16em; fill: var(--oppo-ink-2); }
+.node-n { font-size: 11px; font-weight: 750; letter-spacing: 0.16em; fill: var(--oppo-ink-2); }
 
 .pupil { animation: oppo-bob 3.4s ease-in-out infinite; transform-box: fill-box; transform-origin: center; }
 
-.rail-k { font-size: 8.5px; font-weight: 750; letter-spacing: 0.22em; fill: var(--oppo-ink-3); }
+.rail-k { font-size: 10px; font-weight: 750; letter-spacing: 0.22em; fill: var(--oppo-ink-2); }
 .pill { opacity: 0; transform: translateY(-8px); transition: opacity 480ms ease, transform 520ms ease; }
 .partners.on .pill { opacity: 1; transform: translateY(0); }
-.pill-t { font-size: 9.5px; font-weight: 600; fill: var(--oppo-ink-1); }
+.pill-t { font-size: 11.5px; font-weight: 600; fill: var(--oppo-ink-1); }
 
 .card { transform: scaleX(0.04); transform-box: fill-box; transform-origin: center;
   transition: transform 720ms cubic-bezier(.3,1.35,.45,1); }
 .card-wrap.on .card { transform: scaleX(1); }
-.card-s2 { font-size: 7px; font-weight: 650; letter-spacing: 0.18em; fill: var(--oppo-ink-3); }
+.card-s2 { font-size: 8.5px; font-weight: 650; letter-spacing: 0.18em; fill: var(--oppo-ink-2); }
 .sheen { animation: oppo-sheen 4.4s ease-in-out infinite; transform-box: fill-box; transform-origin: center; }
 
 .tap-ring { animation: tap 2.2s ease-out infinite; transform-box: fill-box; transform-origin: center; }
@@ -219,22 +219,22 @@ const AHD = [
   0%   { transform: scale(0.8); opacity: 0.7; }
   100% { transform: scale(1.6); opacity: 0; }
 }
-.tap-t { font-size: 8px; font-weight: 800; letter-spacing: 0.2em; fill: var(--s2); }
+.tap-t { font-size: 9.5px; font-weight: 800; letter-spacing: 0.2em; fill: var(--s2); }
 
 .rec { opacity: 0; transform: translateX(-12px); transition: opacity 460ms ease, transform 520ms ease; }
 .records.on .rec { opacity: 1; transform: translateX(0); }
-.rec-t { font-size: 10px; font-weight: 600; fill: var(--oppo-ink-1); }
+.rec-t { font-size: 12px; font-weight: 600; fill: var(--oppo-ink-1); }
 
-.lei-k { font-size: 8px; font-weight: 800; letter-spacing: 0.2em; fill: var(--oppo-gold); }
-.lei-t { font-size: 13px; font-weight: 750; fill: var(--oppo-ink); }
-.lei-s { font-size: 9px; font-weight: 650; letter-spacing: 0.2em; fill: var(--oppo-ink-2); }
-.idx-note { font-size: 8.5px; fill: var(--oppo-ink-3); opacity: 0; transition: opacity 560ms ease 200ms; }
+.lei-k { font-size: 9.5px; font-weight: 800; letter-spacing: 0.2em; fill: var(--oppo-gold); }
+.lei-t { font-size: 15px; font-weight: 750; fill: var(--oppo-ink); }
+.lei-s { font-size: 10.5px; font-weight: 650; letter-spacing: 0.2em; fill: var(--oppo-ink-2); }
+.idx-note { font-size: 10.5px; fill: var(--oppo-ink-2); opacity: 0; transition: opacity 560ms ease 200ms; }
 .idx-note.on { opacity: 1; }
 
 .ahd-card { opacity: 0; transform: translateY(12px); transition: opacity 480ms ease, transform 520ms ease; }
 .ahd.on .ahd-card { opacity: 1; transform: translateY(0); }
-.ahd-n { font-size: 17px; font-weight: 800; fill: var(--s5); }
-.ahd-t { font-size: 9px; font-weight: 600; fill: var(--oppo-ink-1); }
-.ahd-out { font-size: 9px; font-style: italic; fill: var(--oppo-ink-2); }
+.ahd-n { font-size: 19px; font-weight: 800; fill: var(--s5); }
+.ahd-t { font-size: 11px; font-weight: 600; fill: var(--oppo-ink-1); }
+.ahd-out { font-size: 10.5px; font-style: italic; fill: var(--oppo-ink-2); }
 .ahd-arc { animation: oppo-dash 22s linear infinite; }
 </style>

@@ -129,8 +129,8 @@ const lead = computed(() => props.step >= 3)
 
 <style scoped>
 .rr {
-  --c-name: 124px;
-  --c-val: 92px;
+  --c-name: 138px;
+  --c-val: 104px;
   --c-gap: 0.75rem;
   width: 100%;
   display: grid;
@@ -184,7 +184,7 @@ const lead = computed(() => props.step >= 3)
 }
 
 .r-name {
-  font-size: 0.95rem;
+  font-size: 1.05rem;
   line-height: 1.1;
   color: var(--oppo-ink-1);
   text-align: right;
@@ -213,8 +213,8 @@ const lead = computed(() => props.step >= 3)
   font-variant-numeric: tabular-nums;
   transition: opacity 180ms ease;
 }
-.v { font-size: 1.05rem; font-weight: 700; color: var(--oppo-ink); }
-.pc { font-size: 0.95rem; font-weight: 600; color: var(--oppo-gold); opacity: 0; }
+.v { font-size: 1.2rem; font-weight: 700; color: var(--oppo-ink); }
+.pc { font-size: 1.02rem; font-weight: 600; color: var(--oppo-gold); opacity: 0; }
 .row:hover .v { opacity: 0; }
 .row:hover .pc { opacity: 1; }
 
@@ -252,8 +252,8 @@ const lead = computed(() => props.step >= 3)
 .at {
   position: absolute;
   transform: translateX(-50%);
-  font-size: 0.64rem;
-  color: var(--oppo-ink-4);
+  font-size: 0.8rem;
+  color: var(--oppo-ink-2);
   font-variant-numeric: tabular-nums;
 }
 
@@ -278,24 +278,24 @@ const lead = computed(() => props.step >= 3)
   color: var(--oppo-gold);
   margin-top: 0.35rem;
 }
-.hero-sub { font-size: 0.78rem; color: var(--oppo-ink-2); margin-top: 0.15rem; }
+.hero-sub { font-size: 0.92rem; color: var(--oppo-ink-2); margin-top: 0.15rem; }
 
 .note { transition-delay: 120ms; }
 .note-key {
   display: flex; align-items: center; gap: 0.45rem;
-  font-size: 1.1rem; font-weight: 750; color: var(--oppo-ink);
+  font-size: 1.22rem; font-weight: 750; color: var(--oppo-ink);
   font-variant-numeric: tabular-nums;
 }
 .swatch {
   width: 11px; height: 11px; border-radius: 3px;
   background: var(--oppo-gold-fig); flex: none;
 }
-.note p { font-size: 0.78rem; line-height: 1.45; color: var(--oppo-ink-2); margin-top: 0.3rem; }
+.note p { font-size: 0.92rem; line-height: 1.45; color: var(--oppo-ink-2); margin-top: 0.3rem; }
 
 .foot {
-  font-size: 0.7rem;
+  font-size: 0.86rem;
   line-height: 1.4;
-  color: var(--oppo-ink-3);
+  color: var(--oppo-ink-2);
   transition-delay: 240ms;
   margin-top: auto;
 }

@@ -86,7 +86,7 @@ const tiles = computed(() => props.step >= 2)
 </template>
 
 <style scoped>
-.sb { width: 100%; display: grid; grid-template-columns: 1fr 300px; gap: 2rem; align-items: center; }
+.sb { width: 100%; display: grid; grid-template-columns: 1fr 340px; gap: 2rem; align-items: center; }
 
 .chart-head { margin-bottom: 0.5rem; }
 .plot { position: relative; padding-top: 1.1rem; }
@@ -95,13 +95,13 @@ const tiles = computed(() => props.step >= 2)
   position: absolute;
   top: 1.1rem; bottom: 0;
   left: calc(50% + 0.45rem);
-  right: calc(78px + 0.6rem);
+  right: calc(96px + 0.6rem);
   pointer-events: none;
 }
 .gl { position: absolute; top: -1.1rem; bottom: 0; width: 1px; background: var(--h-11); }
 .gt {
   position: absolute; top: -1.05rem; left: 0; transform: translateX(-50%);
-  font-size: 0.64rem; color: var(--oppo-ink-4); font-variant-numeric: tabular-nums;
+  font-size: 0.8rem; color: var(--oppo-ink-2); font-variant-numeric: tabular-nums;
 }
 
 .scan {
@@ -121,10 +121,10 @@ const tiles = computed(() => props.step >= 2)
   grid-template-columns: 1fr 1fr;
   align-items: center;
   gap: 0 0.9rem;
-  padding: 0.42rem 0;
+  padding: 0.55rem 0;
 }
 .r-label {
-  font-size: 0.92rem;
+  font-size: 1.3rem;
   line-height: 1.25;
   color: var(--oppo-ink-1);
   text-align: right;
@@ -132,21 +132,21 @@ const tiles = computed(() => props.step >= 2)
 .track {
   position: relative;
   display: grid;
-  grid-template-columns: 1fr 78px;
+  grid-template-columns: 1fr 96px;
   gap: 0.6rem;
   align-items: center;
-  height: 28px;
+  height: 54px;
 }
-.bar-area { position: relative; height: 18px; }
+.bar-area { position: relative; height: 32px; }
 .bar {
-  height: 18px;
+  height: 32px;
   background: var(--chart-bar);
   border-radius: 0 4px 4px 0;
   transition: width 900ms cubic-bezier(.22, 1, .36, 1);
   flex: none;
 }
 .r-val {
-  font-size: 1.02rem;
+  font-size: 1.55rem;
   font-weight: 700;
   color: var(--oppo-ink);
   font-variant-numeric: tabular-nums;
@@ -156,15 +156,15 @@ const tiles = computed(() => props.step >= 2)
 }
 .r-val.on { opacity: 1; }
 
-.tiles { display: flex; flex-direction: column; gap: 0.6rem; }
+.tiles { display: flex; flex-direction: column; gap: 0.9rem; }
 .tile {
   opacity: 0; transform: translateY(12px);
   transition: opacity 520ms ease, transform 520ms cubic-bezier(.22, 1, .36, 1);
 }
 .tile.on { opacity: 1; transform: translateY(0); }
-.t-val { font-size: 2.7rem; font-weight: 800; color: var(--oppo-gold); line-height: 1; letter-spacing: -0.02em; }
-.t-unit { font-size: 0.6rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--oppo-ink-3); margin-top: 0.1rem; }
-.t-label { font-size: 0.8rem; color: var(--oppo-ink-2); line-height: 1.3; margin-top: 0.3rem; }
+.t-val { font-size: 3.5rem; font-weight: 800; color: var(--oppo-gold); line-height: 1; letter-spacing: -0.02em; }
+.t-unit { font-size: 0.78rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--oppo-ink-2); margin-top: 0.1rem; }
+.t-label { font-size: 1.08rem; color: var(--oppo-ink-2); line-height: 1.3; margin-top: 0.3rem; }
 .tile.note { border: none; background: none; padding: 0.2rem 0 0; }
-.tile.note p { font-size: 0.72rem; color: var(--oppo-ink-3); line-height: 1.4; }
+.tile.note p { font-size: 0.9rem; color: var(--oppo-ink-2); line-height: 1.4; }
 </style>

@@ -151,12 +151,12 @@ const NODES = RAW.map((n, i) => {
 .side.right { opacity: 0; transition: opacity 700ms ease 120ms; }
 .side.right.on { opacity: 1; }
 
-.side-title { font-size: 14px; font-weight: 750; letter-spacing: 0.16em; fill: var(--oppo-ink); }
-.side-sub { font-size: 10px; font-weight: 650; letter-spacing: 0.3em; fill: var(--oppo-ink-3); }
+.side-title { font-size: 16px; font-weight: 750; letter-spacing: 0.16em; fill: var(--oppo-ink); }
+.side-sub { font-size: 11.5px; font-weight: 650; letter-spacing: 0.3em; fill: var(--oppo-ink-2); }
 .side-sub.accent { fill: var(--oppo-gold); }
 .side-note { font-size: 11px; fill: var(--oppo-ink-2); letter-spacing: 0.04em; }
 .side-note.accent2 { fill: var(--oppo-ink-1); }
-.side-verdict { font-size: 11px; font-weight: 650; letter-spacing: 0.1em; fill: var(--s4); }
+.side-verdict { font-size: 12.5px; font-weight: 650; letter-spacing: 0.1em; fill: var(--s4); }
 
 .tally { animation: tally-breathe 2.8s ease-in-out infinite; transform-origin: bottom; }
 @keyframes tally-breathe {
@@ -173,7 +173,7 @@ const NODES = RAW.map((n, i) => {
 .bridge.on { opacity: 1; }
 .arc { stroke-dasharray: 460; stroke-dashoffset: 460; transition: stroke-dashoffset 900ms ease 150ms; }
 .bridge.on .arc { stroke-dashoffset: 0; }
-.bridge-label { font-size: 10.5px; font-weight: 700; letter-spacing: 0.12em; fill: var(--oppo-gold); }
+.bridge-label { font-size: 12px; font-weight: 700; letter-spacing: 0.12em; fill: var(--oppo-gold); }
 
 .link { stroke-dasharray: 100; stroke-dashoffset: 100; transition: stroke-dashoffset 620ms ease; }
 .side.right.on .link { stroke-dashoffset: 0; }
@@ -187,8 +187,8 @@ const NODES = RAW.map((n, i) => {
   0%   { transform: scale(1); opacity: 0.5; }
   100% { transform: scale(1.75); opacity: 0; }
 }
-.hub-l { font-size: 10px; font-weight: 750; letter-spacing: 0.14em; fill: var(--oppo-gold); }
-.node-l { font-size: 10.5px; font-weight: 600; fill: var(--oppo-ink-1); }
+.hub-l { font-size: 11.5px; font-weight: 750; letter-spacing: 0.14em; fill: var(--oppo-gold); }
+.node-l { font-size: 12px; font-weight: 600; fill: var(--oppo-ink-1); }
 
 .rail { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; padding: 0 1rem; }
 .rail-item {
@@ -198,7 +198,7 @@ const NODES = RAW.map((n, i) => {
 }
 .rail-item.on { opacity: 1; transform: translateY(0); }
 .rail-item.right { text-align: right; align-items: flex-end; }
-.rail-item strong { font-size: 0.9rem; font-weight: 600; color: var(--oppo-ink-1); }
+.rail-item strong { font-size: 1.05rem; font-weight: 600; color: var(--oppo-ink-1); }
 .gold { color: var(--oppo-gold) !important; }
 .accent { color: var(--oppo-gold); }
 </style>

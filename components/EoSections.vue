@@ -145,7 +145,7 @@ const sec2 = computed(() => props.step >= 2)
 </template>
 
 <style scoped>
-.eos { width: 100%; display: flex; flex-direction: column; gap: 1.25rem; }
+.eos { width: 100%; height: 100%; display: flex; flex-direction: column; gap: 1.25rem; }
 
 /* ---------- masthead ---------- */
 .masthead {
@@ -155,7 +155,7 @@ const sec2 = computed(() => props.step >= 2)
 }
 
 .seal { flex: none; }
-.seal-svg { width: 118px; height: 118px; display: block; }
+.seal-svg { width: 140px; height: 140px; display: block; }
 .seal-ring { transform-box: fill-box; transform-origin: center; animation: oppo-spin 46s linear infinite; }
 .seal-k { font-size: 6.4px; font-weight: 750; letter-spacing: 0.1em; fill: var(--oppo-ink-3); }
 .seal-n { font-size: 22px; font-weight: 800; fill: var(--oppo-gold); font-variant-numeric: tabular-nums; }
@@ -173,10 +173,10 @@ const sec2 = computed(() => props.step >= 2)
   display: flex;
   align-items: center;
   gap: 0.55rem;
-  font-size: 0.7rem;
+  font-size: 0.86rem;
   letter-spacing: 0.15em;
   text-transform: uppercase;
-  color: var(--oppo-ink-3);
+  color: var(--oppo-ink-2);
   font-weight: 600;
 }
 .issuer-strong { color: var(--oppo-ink-2); }
@@ -192,7 +192,7 @@ const sec2 = computed(() => props.step >= 2)
 .order p {
   margin: 0;
   font-family: Fraunces, serif;
-  font-size: 1.06rem;
+  font-size: 1.26rem;
   line-height: 1.55;
   color: var(--oppo-ink-1);
 }
@@ -222,7 +222,7 @@ const sec2 = computed(() => props.step >= 2)
 
 .sec-head { display: flex; align-items: center; gap: 0.95rem; }
 
-.glyph { flex: none; width: 66px; height: 66px; }
+.glyph { flex: none; width: 78px; height: 78px; }
 .glyph svg { width: 100%; height: 100%; display: block; }
 .sec.on .limbs { animation: oppo-breathe 4.2s ease-in-out infinite; }
 .sec.on .core { animation: oppo-pulse-ring 2.8s ease-out infinite; transform-box: fill-box; transform-origin: center; }
@@ -236,7 +236,7 @@ const sec2 = computed(() => props.step >= 2)
 .sec-id { min-width: 0; }
 .sec-no {
   display: inline-block;
-  font-size: 0.68rem;
+  font-size: 0.82rem;
   font-weight: 750;
   letter-spacing: 0.2em;
   text-transform: uppercase;
@@ -245,7 +245,7 @@ const sec2 = computed(() => props.step >= 2)
 }
 .sec-id h3 {
   margin: 0;
-  font-size: 1.1rem;
+  font-size: 1.3rem;
   line-height: 1.25;
   font-weight: 650;
   color: var(--oppo-ink);
@@ -253,7 +253,7 @@ const sec2 = computed(() => props.step >= 2)
 
 .sec-body {
   margin: 0;
-  font-size: 0.88rem;
+  font-size: 1.05rem;
   line-height: 1.6;
   color: var(--oppo-ink-2);
 }
@@ -266,7 +266,7 @@ const sec2 = computed(() => props.step >= 2)
   gap: 0.5rem;
   padding-top: 0.8rem;
   border-top: 1px solid var(--h-11);
-  font-size: 0.8rem;
+  font-size: 0.96rem;
   color: var(--oppo-ink-2);
 }
 .sec-take strong { color: var(--oppo-gold); font-weight: 650; }

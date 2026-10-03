@@ -97,7 +97,9 @@ const branch = computed(() => props.step >= 5)
           <path d="M -17 -12 V 10 A 17 6 0 0 0 17 10 V -12" />
           <path d="M -17 -1 A 17 6 0 0 0 17 -1" opacity="0.6" />
         </g>
-        <text y="34" text-anchor="middle" class="hub-l">REAL-TIME</text>
+        <!-- sits clear below the r=42 ring: inside it, the wider setting at this
+             size crosses the arc where it curves back in -->
+        <text y="57" text-anchor="middle" class="hub-l">REAL-TIME</text>
       </g>
       <text :x="HUB.x" y="266" text-anchor="middle" class="stg-n">OPPO POPULATION</text>
       <text :x="HUB.x" y="279" text-anchor="middle" class="stg-n">DATABANK</text>
@@ -221,19 +223,19 @@ const branch = computed(() => props.step >= 5)
 .stg { opacity: 0; transition: opacity 600ms ease, transform 600ms ease; }
 .stg.on { opacity: 1; }
 
-.stg-k { font-size: 8.5px; font-weight: 750; letter-spacing: 0.22em; fill: var(--oppo-ink-3); }
-.stg-n { font-size: 10px; font-weight: 750; letter-spacing: 0.12em; fill: var(--oppo-ink); }
-.stg-s { font-size: 9px; fill: var(--oppo-ink-3); }
+.stg-k { font-size: 10px; font-weight: 750; letter-spacing: 0.22em; fill: var(--oppo-ink-2); }
+.stg-n { font-size: 12px; font-weight: 750; letter-spacing: 0.12em; fill: var(--oppo-ink); }
+.stg-s { font-size: 10.5px; fill: var(--oppo-ink-2); }
 
 .lcr { animation: lcr-blink 3.4s ease-in-out infinite; }
 @keyframes lcr-blink {
   0%, 100% { stroke: var(--h-25); }
   50%      { stroke: var(--s3-90); }
 }
-.lcr-t { font-size: 8px; font-weight: 700; letter-spacing: 0.16em; fill: var(--oppo-ink-2); }
+.lcr-t { font-size: 9.5px; font-weight: 700; letter-spacing: 0.16em; fill: var(--oppo-ink-2); }
 
 .ping { animation: oppo-pulse-ring 2.8s ease-out infinite; }
-.hub-l { font-size: 7.5px; font-weight: 750; letter-spacing: 0.18em; fill: var(--s3); }
+.hub-l { font-size: 9px; font-weight: 750; letter-spacing: 0.18em; fill: var(--s3); }
 
 .flow { opacity: 0; transition: opacity 600ms ease; }
 .flow.on { opacity: 1; }
@@ -241,20 +243,20 @@ const branch = computed(() => props.step >= 5)
 .facet { opacity: 0; transform: translateX(-14px); transform-box: view-box;
   transition: opacity 460ms ease, transform 520ms cubic-bezier(.22,1,.36,1); }
 .stg.on .facet { opacity: 1; transform: translateX(0); }
-.facet-t { font-size: 10px; font-weight: 600; fill: var(--oppo-ink-1); }
+.facet-t { font-size: 11.5px; font-weight: 600; fill: var(--oppo-ink-1); }
 
-.awds-t { font-size: 13px; font-weight: 800; letter-spacing: 0.08em; fill: var(--oppo-gold); }
-.awds-s { font-size: 7.5px; letter-spacing: 0.08em; fill: var(--oppo-ink-2); }
+.awds-t { font-size: 15px; font-weight: 800; letter-spacing: 0.08em; fill: var(--oppo-gold); }
+.awds-s { font-size: 9px; letter-spacing: 0.08em; fill: var(--oppo-ink-2); }
 
-.lei-k { font-size: 8px; font-weight: 800; letter-spacing: 0.2em; fill: var(--oppo-gold); }
-.lei-t { font-size: 13px; font-weight: 750; letter-spacing: 0.04em; fill: var(--oppo-ink); }
-.lei-s { font-size: 9px; font-weight: 650; letter-spacing: 0.2em; fill: var(--oppo-ink-2); }
+.lei-k { font-size: 9.5px; font-weight: 800; letter-spacing: 0.2em; fill: var(--oppo-gold); }
+.lei-t { font-size: 15px; font-weight: 750; letter-spacing: 0.04em; fill: var(--oppo-ink); }
+.lei-s { font-size: 10.5px; font-weight: 650; letter-spacing: 0.2em; fill: var(--oppo-ink-2); }
 
 .branch { opacity: 0; transform: translateY(12px); transform-box: view-box;
   transition: opacity 600ms ease, transform 600ms ease; }
 .branch.on { opacity: 1; transform: translateY(0); }
-.br-k { font-size: 7.5px; font-weight: 750; letter-spacing: 0.18em; fill: var(--s2); }
-.br-t { font-size: 9.5px; font-weight: 600; fill: var(--oppo-ink-1); }
-.br-s { font-size: 9px; fill: var(--oppo-ink-3); font-style: italic; }
+.br-k { font-size: 9px; font-weight: 750; letter-spacing: 0.18em; fill: var(--s2); }
+.br-t { font-size: 11px; font-weight: 600; fill: var(--oppo-ink-1); }
+.br-s { font-size: 10.5px; fill: var(--oppo-ink-2); font-style: italic; }
 .br-arc { animation: oppo-dash 20s linear infinite; }
 </style>

@@ -156,7 +156,7 @@ const OUTCOMES = [
           </g>
         </g>
 
-        <text y="128" text-anchor="middle" class="house-l" :class="{ on: shown(2) }">
+        <text y="150" text-anchor="middle" class="house-l" :class="{ on: shown(2) }">
           A WELL-PLANNED, HEALTHY, EMPOWERED AND RESILIENT HOUSEHOLD
         </text>
       </g>
@@ -165,10 +165,10 @@ const OUTCOMES = [
       <g class="outcomes" :class="{ on: shown(4) }">
         <g v-for="(o, i) in OUTCOMES" :key="i" class="out"
           :style="{ transitionDelay: (i * 80) + 'ms' }">
-          <rect x="798" :y="44 + i * 48" width="178" height="34" rx="8" fill="var(--oppo-bg-2)"
+          <rect x="760" :y="44 + i * 48" width="216" height="34" rx="8" fill="var(--oppo-bg-2)"
             stroke="var(--g-30)" stroke-width="0.9" />
-          <circle cx="814" :cy="61 + i * 48" r="3" fill="var(--oppo-gold)" />
-          <text x="826" :y="65 + i * 48" class="out-t">{{ o }}</text>
+          <circle cx="776" :cy="61 + i * 48" r="3" fill="var(--oppo-gold)" />
+          <text x="788" :y="65 + i * 48" class="out-t">{{ o }}</text>
         </g>
       </g>
     </svg>
@@ -182,9 +182,9 @@ const OUTCOMES = [
 .prog { opacity: 0; transform: translateX(-16px); transform-box: view-box;
   transition: opacity 520ms ease, transform 560ms cubic-bezier(.22,1,.36,1); }
 .prog.on { opacity: 1; transform: translateX(0); }
-.prog-a { font-size: 11px; font-weight: 800; letter-spacing: 0.14em; }
-.prog-n { font-size: 9px; font-weight: 650; fill: var(--oppo-ink); }
-.prog-b { font-size: 8.5px; fill: var(--oppo-ink-2); }
+.prog-a { font-size: 13px; font-weight: 800; letter-spacing: 0.14em; }
+.prog-n { font-size: 11px; font-weight: 650; fill: var(--oppo-ink); }
+.prog-b { font-size: 10.5px; fill: var(--oppo-ink-2); }
 
 .ribbons { opacity: 0; transition: opacity 600ms ease; }
 .ribbons.on { opacity: 1; }
@@ -210,7 +210,7 @@ html.light .ribbon { stroke-opacity: 0.6; }
 .family.on { opacity: 1; transform: translate(0, 82px); }
 .fig { animation: oppo-bob 3s ease-in-out infinite; transform-box: fill-box; transform-origin: center; }
 
-.house-l { font-size: 9.5px; font-weight: 750; letter-spacing: 0.12em; fill: var(--oppo-gold);
+.house-l { font-size: 10.5px; font-weight: 750; letter-spacing: 0.12em; fill: var(--oppo-gold);
   opacity: 0; transition: opacity 600ms ease 400ms; }
 .house-l.on { opacity: 1; }
 
@@ -219,5 +219,5 @@ html.light .ribbon { stroke-opacity: 0.6; }
 .out { opacity: 0; transform: translateX(14px); transform-box: view-box;
   transition: opacity 460ms ease, transform 520ms ease; }
 .outcomes.on .out { opacity: 1; transform: translateX(0); }
-.out-t { font-size: 9.5px; font-weight: 600; fill: var(--oppo-ink-1); }
+.out-t { font-size: 10.5px; font-weight: 600; fill: var(--oppo-ink-1); }
 </style>

@@ -140,7 +140,9 @@ const progLinks = computed(() => PROG.map(c => link(c.x, c.y + c.h / 2, CX + CR)
 
       <!-- ===== tier: programme integration ===== -->
       <g class="tier" :class="{ on: shown(3) }">
-        <text x="714" y="20" class="tier-k" style="fill: var(--s2)">
+        <!-- by far the longest tier label; `.long` tightens it just enough to
+             sit inside its own chip column (714 to 972) at the larger size -->
+        <text x="714" y="20" class="tier-k long" style="fill: var(--s2)">
           PROGRAMME INTEGRATION &amp; USE-CASE OFFICES
         </text>
         <g v-for="c in PROG" :key="'p' + c.i" class="chip" :style="{ transitionDelay: (c.i * 55) + 'ms' }">
@@ -230,9 +232,10 @@ const progLinks = computed(() => PROG.map(c => link(c.x, c.y + c.h / 2, CX + CR)
   transition: opacity 460ms ease, transform 520ms cubic-bezier(.22,1,.36,1); }
 .tier.on .chip { opacity: 1; transform: translateY(0); }
 
-.tier-k { font-size: 9px; font-weight: 750; letter-spacing: 0.16em; }
-.tier-s { font-size: 9px; font-style: italic; fill: var(--oppo-ink-3); }
-.chip-t { font-size: 10.5px; font-weight: 600; fill: var(--oppo-ink-1); }
+.tier-k { font-size: 10.5px; font-weight: 750; letter-spacing: 0.16em; }
+.tier-k.long { font-size: 9.8px; letter-spacing: 0.07em; }
+.tier-s { font-size: 10.5px; font-style: italic; fill: var(--oppo-ink-2); }
+.chip-t { font-size: 12px; font-weight: 600; fill: var(--oppo-ink-1); }
 
 .core-ping { animation: core-ping 3s ease-out infinite; transform-box: fill-box; transform-origin: center; }
 @keyframes core-ping {
@@ -240,6 +243,6 @@ const progLinks = computed(() => PROG.map(c => link(c.x, c.y + c.h / 2, CX + CR)
   100% { transform: scale(1.6); opacity: 0; }
 }
 .core-heart { animation: oppo-heartbeat 2.6s ease-in-out infinite; transform-box: fill-box; transform-origin: center; }
-.core-t { font-size: 12px; font-weight: 800; letter-spacing: 0.18em; fill: var(--oppo-gold); }
-.core-s { font-size: 9.5px; font-style: italic; fill: var(--oppo-ink-2); }
+.core-t { font-size: 13.5px; font-weight: 800; letter-spacing: 0.18em; fill: var(--oppo-gold); }
+.core-s { font-size: 11px; font-style: italic; fill: var(--oppo-ink-2); }
 </style>

@@ -403,7 +403,7 @@ html[data-deck-theme='pass'].light {
 
 /* ---------- shared bits ---------- */
 .oppo-eyebrow {
-  font-size: 0.72rem;
+  font-size: 0.86rem;
   letter-spacing: 0.22em;
   text-transform: uppercase;
   color: var(--oppo-gold);
@@ -420,10 +420,10 @@ html[data-deck-theme='pass'].light {
 }
 
 .oppo-kicker {
-  font-size: 0.78rem;
+  font-size: 0.92rem;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: var(--oppo-ink-3);
+  color: var(--oppo-ink-2);
   font-weight: 600;
 }
 
@@ -438,7 +438,7 @@ html[data-deck-theme='pass'].light {
   display: inline-flex;
   align-items: center;
   gap: 0.4rem;
-  font-size: 0.68rem;
+  font-size: 0.8rem;
   font-weight: 650;
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -450,8 +450,8 @@ html[data-deck-theme='pass'].light {
 }
 
 .oppo-fig-note {
-  font-size: 0.72rem;
-  color: var(--oppo-ink-3);
+  font-size: 0.86rem;
+  color: var(--oppo-ink-2);
 }
 
 .tnum { font-variant-numeric: tabular-nums; }
@@ -465,7 +465,7 @@ html[data-deck-theme='pass'].light {
 .title-with-mark h1 { margin: 0; }
 .title-mark {
   flex: none;
-  height: 44px;
+  height: 48px;
   width: auto;
   display: block;
 }
