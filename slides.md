@@ -1,6 +1,6 @@
 ---
 theme: default
-layout: cover
+layout: report-cover
 title: From Human Numbers to Human Lives
 info: |
   Department Report — Office of the Provincial Population Officer
@@ -10,7 +10,7 @@ transition: fade
 aspectRatio: 16/9
 canvasWidth: 1280
 fonts:
-  sans: Inter
+  sans: 'Inter,Roboto,Roboto Condensed'
   serif: Fraunces
   mono: JetBrains Mono
   weights: '300,400,500,600,700,800'
@@ -20,20 +20,19 @@ drawings:
 
 <!-- ============================================================= 1 -->
 
-<div class="cover-marks">
-<BrandLockup vertical size="xl" caption="Office of the Provincial Population Officer &#183; Bataeño Pass Program" />
-</div>
+<div class="rc-eyebrow">PROVINCIAL GOVERNMENT OF BATAAN</div>
 
-<div class="oppo-eyebrow" style="margin-bottom:1.6rem">Province of Bataan &#183; Department Report</div>
+<TricolorRule class="rc-rule-1" :width="556" />
 
-<div style="font-size:0.95rem;letter-spacing:.3em;text-transform:uppercase;color:var(--oppo-ink-2);font-weight:600;margin-bottom:.9rem">Office of the Provincial Population Officer</div>
+<div class="rc-title-1">OFFICE OF THE PROVINCIAL</div>
+<div class="rc-title-2">POPULATION OFFICER</div>
 
-<h1 style="font-size:4.1rem;line-height:1.0;letter-spacing:-.035em;max-width:15ch">From Human Numbers to <span style="color:var(--oppo-gold)">Human Lives</span></h1>
+<TricolorRule class="rc-rule-2" :width="585" />
 
-<div style="margin-top:1.6rem;display:flex;align-items:center;gap:1rem">
-<div style="width:46px;height:2px;background:var(--oppo-gold)"></div>
-<div style="font-family:Fraunces,serif;font-size:1.35rem;font-style:italic;color:var(--oppo-ink-2)">Masayang pamilya, maunlad na komunidad.</div>
-</div>
+<div class="rc-kicker">DEPARTMENT REPORT</div>
+
+<div class="rc-date">October 5, 2026</div>
+<div class="rc-venue">Bataan People&rsquo;s Center</div>
 
 ---
 layout: statement
@@ -121,10 +120,10 @@ Under the Local Government Code, the Office of the Provincial Population Officer
 
 1. Integrate population development principles into provincial policies, strategies, and development plans.
 2. Promote responsible parenthood and family well-being.
-3. Implement localized and responsive capacity-building initiatives.
+3. Implement localized capacity-building initiatives.
 4. Maintain a comprehensive population databank for evidence-based provincial planning and service implementation.
 
-CLICK 1 — the four columns rise. CLICK 2 — the Office rests on them. CLICK 3 — they come alive.
+CLICK 1 — the four marks land, left to right. CLICK 2 — each one is spelled out. CLICK 3 — the foundation lights: all four stand on one mandate, the Local Government Code of 1991.
 -->
 
 ---
@@ -132,7 +131,38 @@ layout: figure
 clicks: 3
 ---
 
-<div class="oppo-eyebrow">II.2 &#183; Strategic evolution</div>
+<div class="oppo-eyebrow">II.2 &#183; The national framework</div>
+
+# Eight strategies, one goal
+
+<div class="fig"><PpdPoaFramework :step="$clicks" /></div>
+
+<!--
+The national framework we answer to is the Philippine Population and Development Plan of Action 2023–2028 — the PPD-POA — which sits under the Philippine Development Plan 2023–2028.
+
+Its goal: optimise demographic opportunities and address persistent population issues and challenges, to reap the demographic dividend and accelerate sustainable and inclusive development at all levels.
+
+CLICK 1 — the six substantive strategies.
+1. Promote responsible parenthood — Pre-Marriage Orientation and Counseling, KATROPA (Kalalakihang Tapat sa Responsibilidad at Obligasyon sa Pamilya), Responsible Parenthood Sessions.
+2. Advance adolescent health and development — AHD sessions in schools and communities, the Teen Information Center, and the Information and Service Delivery Network for AHD.
+3. Support labor force empowerment and active and healthy ageing.
+4. Accelerate inclusive development among marginalized sectors of the population.
+5. Integrate the population agenda in sectoral development.
+6. Strengthen people-centered regional and local development.
+
+CLICK 2 — the two that carry the rest: 7, foster partnership and collaboration on POPDEV; and 8, intensify POPDEV databases, registries, research and knowledge management. Nothing above them stands without these two.
+
+CLICK 3 — everything lifts into the goal.
+
+Every PPA this Office runs sits inside one of these eight.
+-->
+
+---
+layout: figure
+clicks: 3
+---
+
+<div class="oppo-eyebrow">II.3 &#183; Strategic evolution</div>
 
 # From population management to POPDEV
 
@@ -154,10 +184,33 @@ CLICK 1 — the PPD-POA carries it across. CLICK 2 — the web of life chances. 
 
 ---
 layout: figure
+clicks: 2
+---
+
+<div class="oppo-eyebrow">II.4 &#183; What the order says</div>
+
+# Executive Order No. 26, Series of 2026
+
+<div class="fig"><EoSections :step="$clicks" /></div>
+
+<!--
+Let me read the instrument itself.
+
+Executive Order No. 26, Series of 2026, issued by the Office of the Provincial Governor: an order transferring the implementation and operationalisation of Provincial Ordinance No. 23, Series of 2022 — otherwise known as the Provincial Personal Data Card, or PPDC, Ordinance of 2022 — under the Office of the Provincial Population Officer, and establishing the Bataeño Pass Program Management Structure.
+
+CLICK 1 — Section 1, Establishment of the Bataeño Pass Program Management Structure. The implementation and operationalisation of the Bataeño Pass Program are hereby transferred to and placed under the direct supervision and control of the Office of the Provincial Population Officer, which shall serve as the central coordinating office for the Program.
+
+CLICK 2 — Section 2, Supervision and Policy Direction. The Acting Provincial Population Officer shall serve as Chairperson of the Bataeño Pass Program, and shall exercise overall supervision, policy direction, and executive oversight — subject to the approval of the Provincial Governor.
+
+So the mandate is explicit: this Office does not merely assist with the Pass. It coordinates it, and it chairs it.
+-->
+
+---
+layout: figure
 clicks: 3
 ---
 
-<div class="oppo-eyebrow">II.3 &#183; Executive Order No. 26, s. 2026</div>
+<div class="oppo-eyebrow">II.5 &#183; Executive Order No. 26, s. 2026</div>
 
 <div class="title-with-mark">
 <img src="/bataeno-pass-logo.png" alt="Bataeño Pass" class="title-mark" />
@@ -329,6 +382,32 @@ layout: figure
 clicks: 3
 ---
 
+<div class="oppo-eyebrow">IV.D &#183; Citizen registration</div>
+
+<div class="title-with-mark">
+<img src="/bataeno-pass-logo.png" alt="Bataeño Pass" class="title-mark" />
+<h1>Province-wide reach, town by town</h1>
+</div>
+
+<div class="fig"><RegistrationReach :step="$clicks" /></div>
+
+<!--
+Before the system, the registry. Citizen registration under the Bataeño Pass is now running across all twelve LGUs of Bataan — eleven municipalities and the City of Balanga.
+
+CLICK 1 — the reach, ranked. Every city and municipality is represented. Mariveles leads with 51,006 registrants; Dinalupihan follows with 28,911, and the City of Balanga with 26,251. The "Others" row holds the small number of registrants recorded outside the twelve LGUs.
+
+CLICK 2 — the total: 241,984 registrants province-wide as of August 2026.
+
+CLICK 3 — read the concentration honestly. Mariveles alone carries about one registrant in five, and the three largest LGUs account for roughly 44 percent of the registry. That tells us where the remaining registration effort has to go — and it is why the next slide matters: this registry is only useful if the system behind it can serve every one of these towns equally.
+
+Registration is continuing; these figures move weekly.
+-->
+
+---
+layout: figure
+clicks: 3
+---
+
 <div class="oppo-eyebrow">IV.D &#183; Bataeño Pass</div>
 
 <div class="title-with-mark">
@@ -401,7 +480,7 @@ AI is a digital force multiplier. Human collaboration is what gives every POPDEV
 
 ---
 layout: figure
-clicks: 4
+clicks: 5
 ---
 
 <div class="oppo-eyebrow">VI &#183; Who we work with, every day</div>
@@ -413,13 +492,15 @@ clicks: 4
 <!--
 While AI serves as a powerful digital force multiplier, the office maintains a fundamental principle: human collaboration gives purpose and life to every POPDEV initiative across Bataan.
 
-CLICK 1 — Internal teamwork. Programmers, administrative officers, data analysts and field workers operate as a unified workforce committed to public service excellence.
+CLICK 1 — Strategic leadership and governance partners: the Local Chief Executives, the LGUs, the Sangguniang Panlalawigan, the Provincial Administrator, the Local Finance Committee, and all PGB departments.
 
 CLICK 2 — Registration and operational support: 1BOSSCO, LGUs, barangays, and congressional district staff.
 
 CLICK 3 — Program integration and use-case offices: PGO, DepEd, the Provincial School Board, Legal Office, PIO, PITO, PSWDO, PDRRMO, PESO, PG-ENRO, Iskolar ng Bataan, and members of the Bataeño Pass Program Management Structure.
 
 CLICK 4 — Community groundwork. Compassionate, face-to-face engagement driven by LGU and Barangay Population Workers, PMOC counselors, and local community partners.
+
+CLICK 5 — Internal teamwork. Programmers, administrative officers, data analysts and field workers operate as a unified workforce committed to public service excellence.
 -->
 
 ---

@@ -15,7 +15,7 @@ const props = withDefaults(defineProps<{ step?: number }>(), { step: 0 })
 
 const ROWS = [
   { label: 'Persons provided with Responsible Parenthood services', v: 11221 },
-  { label: 'Adults and parents reached through AHD activities', v: 1813 },
+  { label: 'Adults and parents reached through AHD activities', v: 11813 },
   { label: 'Service providers reached through AHD activities', v: 1813 },
   { label: 'Adolescents reached through AHD activities', v: 1760 },
   { label: 'Would-be couples given Pre-Marriage Orientation and Counseling', v: 1700 },

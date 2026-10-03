@@ -4,13 +4,14 @@
  * gives the work purpose, so it is drawn as a living thing - pulses run
  * inward from every partner to the Office, continuously.
  *
- * Laid out as four tiers around the centre rather than one radial burst:
- * twenty-two partner names need room to be read, not a starburst.
+ * Laid out as five tiers around the centre rather than one radial burst:
+ * the partner names need room to be read, not a starburst.
  *
- * step 1 - the internal team
+ * step 1 - strategic leadership and governance partners
  * step 2 - registration and operational support
  * step 3 - programme integration and use-case offices
  * step 4 - the community groundwork
+ * step 5 - the internal team
  */
 import { computed } from 'vue'
 
@@ -18,8 +19,14 @@ const props = withDefaults(defineProps<{ step?: number }>(), { step: 0 })
 const shown = (at: number) => props.step >= at
 
 const CX = 500
-const CY = 268
+const CY = 238
 const CR = 56
+
+// ---- top centre: strategic leadership & governance
+const LEAD = [
+  'Local Chief Executives (LCEs)', 'LGUs', 'Sangguniang Panlalawigan (SP)',
+  'Provincial Administrator', 'Local Finance Committee (LFC)', 'All PGB Departments',
+]
 
 // ---- right column: programme integration & use-case offices
 const PROG = [
@@ -30,14 +37,14 @@ const PROG = [
 // ---- left column, upper: registration & operational support
 const REG = [
   '1BOSSCO', 'LGUs', 'Barangays', 'Congressional District Staff',
-].map((label, i) => ({ label, i, x: 28, y: 46 + i * 38, w: 240, h: 26 }))
+].map((label, i) => ({ label, i, x: 28, y: 74 + i * 38, w: 240, h: 26 }))
 
 // ---- left column, lower: community groundwork
 const COMM = [
   'Barangay Population Workers (BPVs)', 'PMOC Counselors', 'Local Community Partners',
-].map((label, i) => ({ label, i, x: 28, y: 290 + i * 38, w: 240, h: 26 }))
+].map((label, i) => ({ label, i, x: 28, y: 276 + i * 38, w: 240, h: 26 }))
 
-// ---- top centre: the internal team
+// ---- bottom centre: the internal team
 const TEAM = ['Programmers', 'Administrative Officers', 'Data Analysts', 'Field Workers']
 
 const link = (fromX: number, fromY: number, toX: number) =>
@@ -51,7 +58,7 @@ const progLinks = computed(() => PROG.map(c => link(c.x, c.y + c.h / 2, CX + CR)
 <template>
   <div class="pn">
     <svg viewBox="0 0 1000 466" class="stage" role="img"
-      aria-label="Four tiers of partners connecting to the Office of the Provincial Population Officer">
+      aria-label="Five tiers of partners connecting to the Office of the Provincial Population Officer">
       <defs>
         <filter id="pn-glow" x="-80%" y="-80%" width="260%" height="260%">
           <feGaussianBlur stdDeviation="5" result="b" />
@@ -60,7 +67,8 @@ const progLinks = computed(() => PROG.map(c => link(c.x, c.y + c.h / 2, CX + CR)
         <path v-for="(d, i) in regLinks" :key="'rp' + i" :id="'pn-reg-' + i" :d="d" />
         <path v-for="(d, i) in commLinks" :key="'cp' + i" :id="'pn-comm-' + i" :d="d" />
         <path v-for="(d, i) in progLinks" :key="'pp' + i" :id="'pn-prog-' + i" :d="d" />
-        <path id="pn-team" :d="'M ' + CX + ' 136 V ' + (CY - CR)" />
+        <path id="pn-lead" :d="'M ' + CX + ' 146 V ' + (CY - CR)" />
+        <path id="pn-team" :d="'M ' + CX + ' 322 V ' + (CY + CR)" />
       </defs>
 
       <!-- ===== links ===== -->
@@ -77,6 +85,9 @@ const progLinks = computed(() => PROG.map(c => link(c.x, c.y + c.h / 2, CX + CR)
           fill="none" stroke="var(--s2)" stroke-opacity="0.3" stroke-width="1.1" />
       </g>
       <g class="lk" :class="{ on: shown(1) }">
+        <use href="#pn-lead" fill="none" stroke="var(--s4)" stroke-opacity="0.4" stroke-width="1.3" />
+      </g>
+      <g class="lk" :class="{ on: shown(5) }">
         <use href="#pn-team" fill="none" stroke="var(--s1)" stroke-opacity="0.4" stroke-width="1.3" />
       </g>
 
@@ -109,6 +120,15 @@ const progLinks = computed(() => PROG.map(c => link(c.x, c.y + c.h / 2, CX + CR)
         </circle>
       </template>
       <template v-if="shown(1)">
+        <circle v-for="k in 2" :key="'lc' + k" r="2.8" fill="var(--s4)" opacity="0">
+          <animateMotion dur="2.4s" repeatCount="indefinite" :begin="((k - 1) * 1.2) + 's'">
+            <mpath href="#pn-lead" />
+          </animateMotion>
+          <animate attributeName="opacity" values="0;1;1;0" dur="2.4s"
+            repeatCount="indefinite" :begin="((k - 1) * 1.2) + 's'" />
+        </circle>
+      </template>
+      <template v-if="shown(5)">
         <circle v-for="k in 2" :key="'tc' + k" r="2.8" fill="var(--s1)" opacity="0">
           <animateMotion dur="2.4s" repeatCount="indefinite" :begin="((k - 1) * 1.2) + 's'">
             <mpath href="#pn-team" />
@@ -133,7 +153,7 @@ const progLinks = computed(() => PROG.map(c => link(c.x, c.y + c.h / 2, CX + CR)
 
       <!-- ===== tier: registration & operational support ===== -->
       <g class="tier" :class="{ on: shown(2) }">
-        <text x="28" y="32" class="tier-k" style="fill: var(--s3)">
+        <text x="28" y="60" class="tier-k" style="fill: var(--s3)">
           REGISTRATION &amp; OPERATIONAL SUPPORT
         </text>
         <g v-for="c in REG" :key="'r' + c.i" class="chip" :style="{ transitionDelay: (c.i * 70) + 'ms' }">
@@ -146,28 +166,41 @@ const progLinks = computed(() => PROG.map(c => link(c.x, c.y + c.h / 2, CX + CR)
 
       <!-- ===== tier: community groundwork ===== -->
       <g class="tier" :class="{ on: shown(4) }">
-        <text x="28" y="276" class="tier-k" style="fill: var(--s5)">COMMUNITY GROUNDWORK</text>
+        <text x="28" y="262" class="tier-k" style="fill: var(--s5)">COMMUNITY GROUNDWORK</text>
         <g v-for="c in COMM" :key="'c' + c.i" class="chip" :style="{ transitionDelay: (c.i * 70) + 'ms' }">
           <rect :x="c.x" :y="c.y" :width="c.w" :height="c.h" rx="7" fill="var(--oppo-bg-2)"
             stroke="var(--s5)" stroke-opacity="0.45" stroke-width="1" />
           <circle :cx="c.x + 15" :cy="c.y + c.h / 2" r="3" fill="var(--s5)" />
           <text :x="c.x + 28" :y="c.y + c.h / 2 + 3.8" class="chip-t">{{ c.label }}</text>
         </g>
-        <text x="28" y="414" class="tier-s">Compassionate, face-to-face engagement</text>
+        <text x="28" y="404" class="tier-s">Compassionate, face-to-face engagement</text>
+      </g>
+
+      <!-- ===== tier: strategic leadership & governance ===== -->
+      <g class="tier" :class="{ on: shown(1) }">
+        <rect x="318" y="10" width="364" height="136" rx="10" fill="var(--oppo-bg-2)"
+          stroke="var(--s4)" stroke-opacity="0.45" stroke-width="1" />
+        <text x="500" y="30" text-anchor="middle" class="tier-k" style="fill: var(--s4)">
+          STRATEGIC LEADERSHIP &amp; GOVERNANCE PARTNERS
+        </text>
+        <g v-for="(t, i) in LEAD" :key="t" class="chip" :style="{ transitionDelay: (i * 60) + 'ms' }">
+          <circle cx="348" :cy="46 + i * 17" r="2.6" fill="var(--s4)" />
+          <text x="360" :y="50 + i * 17" class="chip-t">{{ t }}</text>
+        </g>
       </g>
 
       <!-- ===== tier: internal teamwork ===== -->
-      <g class="tier" :class="{ on: shown(1) }">
-        <rect x="358" y="18" width="284" height="118" rx="10" fill="var(--oppo-bg-2)"
+      <g class="tier" :class="{ on: shown(5) }">
+        <rect x="358" y="322" width="284" height="112" rx="10" fill="var(--oppo-bg-2)"
           stroke="var(--s1)" stroke-opacity="0.45" stroke-width="1" />
-        <text x="500" y="40" text-anchor="middle" class="tier-k" style="fill: var(--s1)">
+        <text x="500" y="342" text-anchor="middle" class="tier-k" style="fill: var(--s1)">
           INTERNAL TEAMWORK
         </text>
         <g v-for="(t, i) in TEAM" :key="t" class="chip" :style="{ transitionDelay: (i * 70) + 'ms' }">
-          <circle cx="386" :cy="62 + i * 19" r="2.6" fill="var(--s1)" />
-          <text x="398" :y="66 + i * 19" class="chip-t">{{ t }}</text>
+          <circle cx="386" :cy="360 + i * 17" r="2.6" fill="var(--s1)" />
+          <text x="398" :y="364 + i * 17" class="chip-t">{{ t }}</text>
         </g>
-        <text x="500" y="152" text-anchor="middle" class="tier-s">one unified workforce</text>
+        <text x="500" y="452" text-anchor="middle" class="tier-s">one unified workforce</text>
       </g>
 
       <!-- ===== the Office ===== -->
@@ -180,9 +213,8 @@ const progLinks = computed(() => PROG.map(c => link(c.x, c.y + c.h / 2, CX + CR)
         </g>
         <text y="36" text-anchor="middle" class="core-t">OPPO</text>
       </g>
-      <text :x="CX" :y="CY + CR + 28" text-anchor="middle" class="core-s">
-        Human collaboration gives purpose and life to every POPDEV initiative
-      </text>
+      <text x="28" y="432" class="core-s">Human collaboration gives purpose and life</text>
+      <text x="28" y="446" class="core-s">to every POPDEV initiative</text>
     </svg>
   </div>
 </template>

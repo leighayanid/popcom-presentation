@@ -1,13 +1,22 @@
 <script setup lang="ts">
 import { computed } from 'vue'
 import { useNav } from '@slidev/client'
+import { isExporting } from './composables/exporting'
 
-const { currentPage, total } = useNav()
+const { currentPage, total, clicks, clicksTotal } = useNav()
 const pct = computed(() => {
   const t = Number(total.value) || 1
   return Math.min(100, (Number(currentPage.value) / t) * 100)
 })
 const hidden = computed(() => Number(currentPage.value) <= 1)
+
+// Click steps for the slide on screen. Each click state is its own page in a
+// PDF, so the counter is meaningless there and stays out of the export.
+const exporting = isExporting()
+const steps = computed(() => Number(clicksTotal.value) || 0)
+const taken = computed(() => Math.min(steps.value, Math.max(0, Number(clicks.value) || 0)))
+const left = computed(() => steps.value - taken.value)
+const showSteps = computed(() => !exporting && steps.value > 0)
 </script>
 
 <template>
@@ -18,7 +27,15 @@ const hidden = computed(() => Number(currentPage.value) <= 1)
         <img class="seal" src="/oppo-seal.png" alt="" aria-hidden="true" >
         Office of the Provincial Population Officer &#183; Province of Bataan
       </span>
-      <span class="tnum">{{ currentPage }} / {{ total }}</span>
+      <span class="right">
+        <span v-if="showSteps" class="steps" :title="`${left} of ${steps} click steps remaining`">
+          <span class="dots" aria-hidden="true">
+            <i v-for="n in steps" :key="n" :class="{ on: n <= taken }" />
+          </span>
+          <span class="tnum">{{ left }} left</span>
+        </span>
+        <span class="tnum">{{ currentPage }} / {{ total }}</span>
+      </span>
     </div>
   </div>
 </template>
@@ -55,4 +72,15 @@ const hidden = computed(() => Number(currentPage.value) <= 1)
   opacity: 0.85;
   flex: none;
 }
+.right { display: inline-flex; align-items: center; gap: 0.8rem; }
+.steps { display: inline-flex; align-items: center; gap: 0.4rem; }
+.dots { display: inline-flex; align-items: center; gap: 3px; }
+.dots i {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: var(--oppo-ink-5);
+  transition: background-color 300ms ease;
+}
+.dots i.on { background: var(--oppo-gold); }
 </style>
