@@ -22,11 +22,18 @@ const RECORDS = [
   ['Provincial social and educational', 'services received'],
 ]
 
+/* The rail runs the width of the stage, so each card has room for its own
+   line break rather than one taken at a fixed word count. */
+const AHD_W = 236
+
 const AHD = [
-  { t: 'Adolescent Pregnancy Prevention Response Program', n: '' },
-  { t: 'School-based and community-based AHD sessions', n: '' },
-  { t: 'Teen Information Centers established', n: '103' },
-]
+  { lines: ['Adolescent Pregnancy Prevention', 'Response Program'], n: '' },
+  { lines: ['School-based and community-based', 'AHD sessions'], n: '' },
+  { lines: ['Teen Information Centers', 'established'], n: '103' },
+].map((a, i) => {
+  const x = 46 + i * 248
+  return { ...a, i, x, tx: x + (a.n ? 60 : 14) }
+})
 </script>
 
 <template>
@@ -48,7 +55,7 @@ const AHD = [
         <path id="ef-rec2" d="M 506 137 H 596" />
         <path id="ef-out" d="M 816 99 C 846 99, 842 118, 836 118" />
         <path id="ef-out2" d="M 816 137 C 846 137, 842 118, 836 118" />
-        <path id="ef-ahd" d="M 700 320 C 780 320, 802 240, 836 150" />
+        <path id="ef-ahd" d="M 784 328 C 822 328, 836 250, 836 152" />
       </defs>
 
       <!-- partners rail -->
@@ -166,13 +173,12 @@ const AHD = [
       <g class="ahd" :class="{ on: shown(5) }">
         <line x1="42" y1="268" x2="958" y2="268" stroke="var(--h-14)" stroke-width="1" />
         <text x="46" y="292" class="rail-k">ADOLESCENT HEALTH AND DEVELOPMENT</text>
-        <g v-for="(a, i) in AHD" :key="i" class="ahd-card" :style="{ transitionDelay: (i * 130) + 'ms' }">
-          <rect :x="46 + i * 222" y="304" width="206" height="48" rx="8" fill="var(--oppo-bg-2)"
+        <g v-for="a in AHD" :key="a.i" class="ahd-card" :style="{ transitionDelay: (a.i * 130) + 'ms' }">
+          <rect :x="a.x" y="304" :width="AHD_W" height="48" rx="8" fill="var(--oppo-bg-2)"
             stroke="var(--s5-45)" stroke-width="1" />
-          <text v-if="a.n" :x="46 + i * 222 + 18" y="336" class="ahd-n">{{ a.n }}</text>
-          <text :x="a.n ? 46 + i * 222 + 60 : 46 + i * 222 + 14" y="324" class="ahd-t">
-            <tspan :x="a.n ? 46 + i * 222 + 60 : 46 + i * 222 + 14">{{ a.t.split(' ').slice(0, 3).join(' ') }}</tspan>
-            <tspan :x="a.n ? 46 + i * 222 + 60 : 46 + i * 222 + 14" dy="13">{{ a.t.split(' ').slice(3).join(' ') }}</tspan>
+          <text v-if="a.n" :x="a.x + 18" y="336" class="ahd-n">{{ a.n }}</text>
+          <text :x="a.tx" y="324" class="ahd-t">
+            <tspan v-for="(ln, li) in a.lines" :key="li" :x="a.tx" :dy="li === 0 ? 0 : 13">{{ ln }}</tspan>
           </text>
         </g>
         <use href="#ef-ahd" fill="none" stroke="var(--s5-45)" stroke-width="1.2"
@@ -183,7 +189,7 @@ const AHD = [
             <animate attributeName="opacity" values="0;1;1;0" dur="2.4s" repeatCount="indefinite" />
           </circle>
         </template>
-        <text x="371" y="372" text-anchor="middle" class="ahd-out">
+        <text x="412" y="372" text-anchor="middle" class="ahd-out">
           protecting the educational opportunity and the health of Bataeño youth
         </text>
       </g>

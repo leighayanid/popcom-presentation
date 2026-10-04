@@ -182,23 +182,23 @@ const branch = computed(() => props.step >= 5)
 
       <!-- ========== branch: the PPD-POA strategies ========== -->
       <g class="branch" :class="{ on: branch }">
-        <rect x="42" y="316" width="230" height="32" rx="8" fill="var(--oppo-bg-2)"
+        <rect x="28" y="316" width="222" height="32" rx="8" fill="var(--oppo-bg-2)"
           stroke="var(--s2-50)" stroke-width="1" />
-        <text x="157" y="331" text-anchor="middle" class="br-k">PPD-POA STRATEGY 1</text>
-        <text x="157" y="343" text-anchor="middle" class="br-t">Responsible Parenthood</text>
+        <text x="139" y="331" text-anchor="middle" class="br-k">PPD-POA STRATEGY 1</text>
+        <text x="139" y="343" text-anchor="middle" class="br-t">Responsible Parenthood</text>
 
-        <rect x="288" y="316" width="248" height="32" rx="8" fill="var(--oppo-bg-2)"
+        <rect x="258" y="316" width="236" height="32" rx="8" fill="var(--oppo-bg-2)"
           stroke="var(--s2-50)" stroke-width="1" />
-        <text x="412" y="331" text-anchor="middle" class="br-k">PPD-POA STRATEGY 2</text>
-        <text x="412" y="343" text-anchor="middle" class="br-t">Adolescent Health and Development</text>
+        <text x="376" y="331" text-anchor="middle" class="br-k">PPD-POA STRATEGY 2</text>
+        <text x="376" y="343" text-anchor="middle" class="br-t">Adolescent Health and Development</text>
 
-        <path d="M 540 332 H 566" stroke="var(--s2-60)" stroke-width="1.2" />
-        <path d="M 560 328 L 566 332 L 560 336" fill="none" stroke="var(--s2-80)" stroke-width="1.2" />
+        <path d="M 498 332 H 524" stroke="var(--s2-60)" stroke-width="1.2" />
+        <path d="M 518 328 L 524 332 L 518 336" fill="none" stroke="var(--s2-80)" stroke-width="1.2" />
 
-        <rect x="572" y="316" width="256" height="32" rx="8" fill="var(--oppo-bg-2)"
+        <rect x="530" y="316" width="302" height="32" rx="8" fill="var(--oppo-bg-2)"
           stroke="var(--s2-50)" stroke-width="1" />
-        <text x="700" y="331" text-anchor="middle" class="br-k">DESIRED OUTCOME</text>
-        <text x="700" y="343" text-anchor="middle" class="br-t">Prevent high-risk births &amp; adolescent pregnancy</text>
+        <text x="681" y="331" text-anchor="middle" class="br-k">DESIRED OUTCOME</text>
+        <text x="681" y="343" text-anchor="middle" class="br-t">Prevent high-risk births &amp; adolescent pregnancy</text>
 
         <use href="#lef-branch" fill="none" stroke="var(--s2-45)"
           stroke-width="1.2" stroke-dasharray="4 5" class="br-arc" />
@@ -208,7 +208,7 @@ const branch = computed(() => props.step >= 5)
             <animate attributeName="opacity" values="0;1;1;0" dur="2.2s" repeatCount="indefinite" />
           </circle>
         </template>
-        <text x="700" y="368" text-anchor="middle" class="br-s">
+        <text x="681" y="368" text-anchor="middle" class="br-s">
           may contribute to improved maternal and infant health outcomes
         </text>
       </g>

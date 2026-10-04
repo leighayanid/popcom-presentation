@@ -18,43 +18,60 @@ const shown = (at: number) => props.step >= at
 const HX = 640
 const HY = 196
 
-const PROGS = [
-  {
-    abbr: 'PMOC', color: 'var(--s2)', y: 44,
-    name: 'Pre-Marriage Orientation and Counseling',
-    body: 'Household size, child spacing, financial capability',
-  },
-  {
-    abbr: 'RPS', color: 'var(--s3)', y: 124,
-    name: 'Responsible Parenthood Sessions',
-    body: 'Household resource management, long-term family planning',
-  },
-  {
-    abbr: 'KATROPA', color: 'var(--s1)', y: 204,
-    name: 'Kalalakihang Tapat sa Responsibilidad at Obligasyon sa Pamilya',
-    body: 'Men in active caregiving and shared domestic responsibility',
-  },
-  {
-    abbr: 'RP-LE', color: 'var(--s4)', y: 286,
-    name: 'RP for Labor Force Empowerment',
-    body: 'Formal workplaces and the informal sector',
-  },
-].map((p, i) => ({
-  ...p, i,
-  path: `M 268 ${p.y + 33} C 400 ${p.y + 33}, 440 ${HY}, ${HX - 126} ${HY}`,
-}))
+/* The card is wide enough for the longest body line to sit inside it with
+   room to spare; the ribbons leave from its right edge. */
+const CARD = { x: 24, w: 300, h: 76, tx: 40 }
+const CARD_R = CARD.x + CARD.w
 
-function nameLines(t: string, max = 42) {
-  const words = t.split(' ')
+function wrap(t: string, max: number) {
   const out: string[] = []
   let cur = ''
-  for (const w of words) {
+  for (const w of t.split(' ')) {
     if ((cur + ' ' + w).trim().length > max && cur) { out.push(cur); cur = w }
     else cur = (cur + ' ' + w).trim()
   }
   if (cur) out.push(cur)
   return out
 }
+
+const LEAD = 11.5
+
+const PROGS = [
+  {
+    abbr: 'PMOC', color: 'var(--s2)', y: 30,
+    name: 'Pre-Marriage Orientation and Counseling',
+    body: 'Household size, child spacing, financial capability',
+  },
+  {
+    abbr: 'RPS', color: 'var(--s3)', y: 116,
+    name: 'Responsible Parenthood Sessions',
+    body: 'Household resource management, long-term family planning',
+  },
+  {
+    abbr: 'KATROPA', color: 'var(--s1)', y: 202,
+    name: 'Kalalakihang Tapat sa Responsibilidad at Obligasyon sa Pamilya',
+    body: 'Men in active caregiving and shared domestic responsibility',
+  },
+  {
+    abbr: 'RP-LE', color: 'var(--s4)', y: 288,
+    name: 'RP for Labor Force Empowerment',
+    body: 'Formal workplaces and the informal sector',
+  },
+].map((p, i) => {
+  // Cards carry one or two lines of each; the block is centred in the card so
+  // a short one does not sit high with a gap under it.
+  const nameLns = wrap(p.name, 44)
+  const bodyLns = wrap(p.body, 54)
+  const blockH = 44 + (nameLns.length + bodyLns.length - 2) * LEAD
+  const abbrY = p.y + (CARD.h - blockH) / 2 + 11
+  const nameY = abbrY + 15
+  const bodyY = nameY + (nameLns.length - 1) * LEAD + 15
+  const mid = p.y + CARD.h / 2
+  return {
+    ...p, i, nameLns, bodyLns, abbrY, nameY, bodyY,
+    path: `M ${CARD_R} ${mid} C 420 ${mid}, 450 ${HY}, ${HX - 126} ${HY}`,
+  }
+})
 
 const OUTCOMES = [
   'Well-planned household size',
@@ -80,14 +97,16 @@ const OUTCOMES = [
 
       <!-- programme cards -->
       <g v-for="p in PROGS" :key="p.abbr" class="prog on" :style="{ transitionDelay: (p.i * 90) + 'ms' }">
-        <rect x="24" :y="p.y" width="244" height="70" rx="9" fill="var(--oppo-bg-2)"
+        <rect :x="CARD.x" :y="p.y" :width="CARD.w" :height="CARD.h" rx="9" fill="var(--oppo-bg-2)"
           :stroke="p.color" stroke-width="1.1" stroke-opacity="0.55" />
-        <rect x="24" :y="p.y" width="3.5" height="70" rx="2" :fill="p.color" />
-        <text x="40" :y="p.y + 20" class="prog-a" :style="{ fill: p.color }">{{ p.abbr }}</text>
-        <text x="40" :y="p.y + 33" class="prog-n">
-          <tspan v-for="(ln, li) in nameLines(p.name)" :key="li" x="40" :dy="li === 0 ? 0 : 11">{{ ln }}</tspan>
+        <rect :x="CARD.x" :y="p.y" width="3.5" :height="CARD.h" rx="2" :fill="p.color" />
+        <text :x="CARD.tx" :y="p.abbrY" class="prog-a" :style="{ fill: p.color }">{{ p.abbr }}</text>
+        <text :x="CARD.tx" :y="p.nameY" class="prog-n">
+          <tspan v-for="(ln, li) in p.nameLns" :key="li" :x="CARD.tx" :dy="li === 0 ? 0 : LEAD">{{ ln }}</tspan>
         </text>
-        <text x="40" :y="p.y + 33 + nameLines(p.name).length * 11 + 3" class="prog-b">{{ p.body }}</text>
+        <text :x="CARD.tx" :y="p.bodyY" class="prog-b">
+          <tspan v-for="(ln, li) in p.bodyLns" :key="li" :x="CARD.tx" :dy="li === 0 ? 0 : LEAD">{{ ln }}</tspan>
+        </text>
       </g>
 
       <!-- ribbons -->
