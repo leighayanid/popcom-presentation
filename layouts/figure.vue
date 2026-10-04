@@ -25,6 +25,16 @@
 .oppo-figure :deep(.fig-banner) { display: flex; justify-content: center; }
 .oppo-figure :deep(.fig-banner) > * { width: 100%; max-width: 560px; }
 
+/* The same strip riding above the head rather than under it: the marks the
+   slide answers to come first, then its own title. The title wants a little
+   more air above it, so it reads as the slide’s own rather than a caption
+   hanging off the plate. An eyebrow standing alone above the strip centres
+   like the head’s own and drops its tail, which would otherwise read as a
+   rule running out of a centred line. */
+.oppo-figure :deep(.fig-banner + .fig-head) { margin-top: 0.4rem; }
+.oppo-figure :deep(.oppo-eyebrow.is-center) { justify-content: center; }
+.oppo-figure :deep(.oppo-eyebrow.is-center)::after { display: none; }
+
 /* A figure sized off its own width grows taller than the stage once a
    banner is above it, and overflows up under the banner rather than
    shrinking. Only where a banner is actually present, give the figure a

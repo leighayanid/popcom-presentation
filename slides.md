@@ -117,8 +117,6 @@ clicks: 2
 
 </div>
 
-<div class="fig-banner"><GlobalAlignment /></div>
-
 <div class="fig"><MandatePillars :step="$clicks" /></div>
 
 <!--
@@ -137,9 +135,11 @@ layout: figure
 clicks: 3
 ---
 
-<div class="fig-head is-center">
+<div class="oppo-eyebrow is-center">II.2 &#183; Philippine Development Plan 2023&ndash;2028</div>
 
-<div class="oppo-eyebrow">II.2 &#183; Philippine Development Plan 2023&ndash;2028</div>
+<div class="fig-banner"><GlobalAlignment /></div>
+
+<div class="fig-head is-center">
 
 # The PPD-POA&#8217;s Goal
 

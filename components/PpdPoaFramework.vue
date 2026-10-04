@@ -242,19 +242,11 @@ function lineY(c: Card, h: number, y: number) {
         </text>
       </g>
     </svg>
-
-    <div class="foot">
-      <span class="oppo-tag">PPD-POA 2023&ndash;2028</span>
-      <span class="oppo-fig-note">
-        Philippine Population and Development Plan of Action &#183; eight strategies, one goal.
-        Strategies <strong>7</strong> and <strong>8</strong> carry the other six.
-      </span>
-    </div>
   </div>
 </template>
 
 <style scoped>
-.pf { width: 100%; display: flex; flex-direction: column; gap: 0.45rem; }
+.pf { width: 100%; display: flex; flex-direction: column; }
 .stage { width: 100%; height: auto; }
 
 .ico { fill: none; stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; }
@@ -288,8 +280,6 @@ function lineY(c: Card, h: number, y: number) {
 
 .props { opacity: 0; transition: opacity 520ms ease 420ms; }
 .props.on { opacity: 1; }
-
-.foot { display: flex; align-items: center; gap: 0.7rem; padding: 0 0.2rem; }
 
 @media (prefers-reduced-motion: reduce) {
   .rise.on .tip { animation: none; }
