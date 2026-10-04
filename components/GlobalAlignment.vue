@@ -11,9 +11,15 @@
  * The PDP banner and the UN emblem are the official artwork, each carried
  * whole at its own aspect rather than cropped to fit. Only the SDG colour
  * wheel is still drawn, from the seventeen goals in their official order
- * and colours, since no file for it was to hand. Those colours are kept
- * literal, so the banner carries its own white plate in either theme: the
- * same bargain BrandLockup makes for the OPPO seal.
+ * and colours, since no file for it was to hand.
+ *
+ * Both themes are served. The plate and the hairlines follow the deck's
+ * tokens, and on the dark stage the two wordmarks take the reversed white
+ * variants that both marks publish for dark grounds - their official inks
+ * are set for paper and would go illegible there. What does not move: the
+ * seventeen goal colours and the emblem's UN blue, which carry on either
+ * ground, and the PDP cover, a raster with its own near-white field, so it
+ * stays a light card whatever the deck is wearing.
  */
 import { computed } from 'vue'
 
@@ -71,8 +77,8 @@ const WEDGES = GOALS.map((fill, i) => {
     <svg viewBox="0 0 1000 200" class="stage" role="img"
       aria-label="The Philippine Development Plan 2023-2028 aligned to the ICPD Programme of Action and the Sustainable Development Goals">
 
-      <!-- the white plate all three marks are drawn for -->
-      <rect x="0" y="0" width="1000" height="200" rx="4" class="plate" />
+      <!-- the plate the three marks sit on -->
+      <rect x="0.5" y="0.5" width="999" height="199" rx="4" class="plate" />
 
       <!-- ============ Philippine Development Plan 2023-2028 ============ -->
       <image href="/pdp-2023-2028.png" :x="PDP.x" :y="PDP.y" :width="PDP.w" :height="PDP.h"
@@ -81,7 +87,7 @@ const WEDGES = GOALS.map((fill, i) => {
 
       <!-- ============ the carry-across ============ -->
       <g class="reveal arrow" :class="{ on: globals }">
-        <path d="M 462 91 h 28 v -12 l 24 18 -24 18 v -12 h -28 Z" fill="#2E5FA3" />
+        <path d="M 462 91 h 28 v -12 l 24 18 -24 18 v -12 h -28 Z" class="arrow-head" />
       </g>
 
       <!-- ============ ICPD ============ -->
@@ -114,20 +120,29 @@ const WEDGES = GOALS.map((fill, i) => {
 .ga { display: flex; flex-direction: column; align-items: center; gap: 0.7rem; width: 100%; }
 .stage { width: 100%; height: auto; display: block; }
 
-/* the marks are drawn for paper, so the banner brings its own */
-.plate { fill: #ffffff; }
-.card-edge { fill: none; stroke: rgba(46, 95, 163, 0.16); stroke-width: 1; }
+/* the plate and its hairlines ride the deck's tokens, so the banner sits on
+   the stage rather than punching a lit hole in it */
+.plate { fill: var(--oppo-bg-2); stroke: var(--h-14); stroke-width: 1; }
+.card-edge { fill: none; stroke: var(--h-18); stroke-width: 1; }
+.arrow-head { fill: var(--s2); }
 
 /* ---- wordmarks ----
    Sizes live here rather than on the elements, because UnoCSS attributify
    claims the font-size attribute: it rewrites a 47 there into 11.75rem and
    bursts the text clean out of the plate. The deck's other SVG components
-   size their text through classes for the same reason. */
-.icpd-word { font-size: 47px; font-weight: 800; fill: #3C3C3B; letter-spacing: -0.5px; }
-.icpd-sub { font-size: 9.5px; fill: #58585A; font-weight: 400; }
-.sdg-word { font-weight: 800; fill: #00558F; letter-spacing: -0.4px; }
+   size their text through classes for the same reason.
+
+   Dark is the base here as everywhere in this deck, so the reversed white
+   variants lead and html.light carries the official paper inks. */
+.icpd-word { font-size: 47px; font-weight: 800; fill: #F2F6FA; letter-spacing: -0.5px; }
+.icpd-sub { font-size: 9.5px; fill: var(--oppo-ink-2); font-weight: 400; }
+.sdg-word { font-weight: 800; fill: #F2F6FA; letter-spacing: -0.4px; }
 .sdg-line { font-size: 23px; }
 .sdg-goals { font-size: 40px; }
+
+html.light .icpd-word { fill: #3C3C3B; }
+html.light .icpd-sub { fill: #58585A; }
+html.light .sdg-word { fill: #00558F; }
 
 /* ---- reveal ---- */
 .reveal { opacity: 0; transition: opacity 520ms ease, transform 560ms cubic-bezier(.34, 1.3, .5, 1); }
