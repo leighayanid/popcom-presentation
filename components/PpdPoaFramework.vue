@@ -171,10 +171,8 @@ function lineY(c: Card, h: number, y: number) {
           <tspan class="hl">Optimize demographic opportunities</tspan><tspan> and address persistent population issues</tspan>
         </text>
         <text x="500" y="51" text-anchor="middle" class="goal-t">
-          <tspan>to reap the demographic dividend and accelerate </tspan><tspan class="hl">sustainable, inclusive development</tspan>
+          <tspan>to reap the demographic dividend and accelerate </tspan><tspan class="hl">sustainable, inclusive development</tspan><tspan> at all levels</tspan>
         </text>
-        <text x="106" y="32" text-anchor="end" class="goal-k">THE PPD-POA&#8217;S</text>
-        <text x="106" y="46" text-anchor="end" class="goal-k">GOAL</text>
       </g>
 
       <!-- the lift from the strategies into the goal -->
@@ -265,7 +263,6 @@ function lineY(c: Card, h: number, y: number) {
 .goal.on { opacity: 1; }
 .goal-t { font-size: 13.5px; fill: var(--oppo-ink-1); }
 .goal-t .hl { font-weight: 750; fill: var(--oppo-gold); }
-.goal-k { font-size: 10px; font-weight: 700; letter-spacing: 0.24em; fill: var(--oppo-ink-2); }
 
 .rise { opacity: 0; transition: opacity 560ms ease; }
 .rise.on { opacity: 1; }

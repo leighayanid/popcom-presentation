@@ -14,10 +14,10 @@ import Ticker from './Ticker.vue'
 const props = withDefaults(defineProps<{ step?: number }>(), { step: 0 })
 
 const ROWS = [
+  { label: 'Adolescents reached through AHD activities', v: 11760 },
   { label: 'Persons provided with Responsible Parenthood services', v: 11221 },
-  { label: 'Adults and parents reached through AHD activities', v: 11813 },
-  { label: 'Service providers reached through AHD activities', v: 1813 },
-  { label: 'Adolescents reached through AHD activities', v: 1760 },
+  { label: 'Service providers reached through AHD activities', v: 1944 },
+  { label: 'Adults and parents reached through AHD activities', v: 1813 },
   { label: 'Would-be couples given Pre-Marriage Orientation and Counseling', v: 1700 },
   { label: 'New KATROPA participants', v: 119 },
 ]

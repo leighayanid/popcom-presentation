@@ -7,10 +7,12 @@
  *   the plinth  the Pass itself: one card, one citizen registry
  *   below it    DATA - the registry it standardises, and what that may support
  *
- * The eight use cases carry the same contactless glyph rather than eight
- * invented icons: the Pass's relationship to every one of them is identical -
- * it is tapped, and the tap is verified against one registry. A pictogram per
- * programme would assert things about those programmes this Office does not own.
+ * Each use case carries its own pictogram, drawn in one stroke weight on one
+ * 24-unit grid so the eight read as a set rather than eight borrowed marks. The
+ * pictograms name the programme, nothing more - they do not assert outcomes
+ * this Office does not own. The contactless glyph that every tile used to carry
+ * stays on, demoted to a faint corner mark: the differing thing (the programme)
+ * leads, the identical thing (the tap, verified against one registry) repeats.
  *
  * The HDI++ capstone is dashed, not solid. No human-development analysis runs
  * on this registry yet, and the figure should not imply that it does.
@@ -26,15 +28,84 @@ const props = withDefaults(defineProps<{ step?: number }>(), { step: 0 })
 
 const REGISTRANTS = 241984
 
+/* One stroke weight, one 24-unit grid, paths only - so scoped CSS reaches
+   them and the set stays recolourable with the figure's accent. */
 const USES = [
-  'School Implementation',
-  'Libreng Sakay',
-  'Social Services',
-  'READI',
-  'Bataan Jobs',
-  'Iskolar ng Bataan',
-  'BHSS',
-  'EduChild',
+  {
+    t: 'School Implementation',
+    // a schoolhouse: pennant, roof, body, door
+    d: [
+      'M12 6.6V3.1',
+      'M12 3.1h2.7l-.7.95.7.95H12z',
+      'M3 11.8 12 6.6l9 5.2',
+      'M5.2 12.7V20h13.6v-7.3',
+      'M10 20v-4.6h4V20',
+    ],
+  },
+  {
+    t: 'Libreng Sakay',
+    // a bus: body, window band, wheels
+    d: [
+      'M4.3 15.7V7.2a2 2 0 0 1 2-2h11.4a2 2 0 0 1 2 2v8.5',
+      'M4.3 15.7h15.4',
+      'M4.3 10.6h15.4',
+      'M12 5.2v5.4',
+      'M6.3 15.7a1.5 1.5 0 0 0 3 0',
+      'M14.7 15.7a1.5 1.5 0 0 0 3 0',
+    ],
+  },
+  {
+    t: 'Social Services',
+    // a heart held in a cupped hand
+    d: [
+      'M12 12.8 7.9 8.7a2.9 2.9 0 0 1 4.1-4.1 2.9 2.9 0 0 1 4.1 4.1z',
+      'M4.4 15.5c2.3 3.2 4.8 4.8 7.6 4.8s5.3-1.6 7.6-4.8',
+    ],
+  },
+  {
+    t: 'READI',
+    // a shield carrying a readiness pulse
+    d: [
+      'M12 3.7 19 6.1v5.5c0 4-2.9 6.9-7 8.4-4.1-1.5-7-4.4-7-8.4V6.1z',
+      'M8.3 11.8h2l1.2-2.4 1.5 4.1 1-1.7h1.7',
+    ],
+  },
+  {
+    t: 'Bataan Jobs',
+    // a briefcase: case, handle, latch line
+    d: [
+      'M5.2 8.7h13.6a1.6 1.6 0 0 1 1.6 1.6v6.5a1.6 1.6 0 0 1-1.6 1.6H5.2a1.6 1.6 0 0 1-1.6-1.6v-6.5a1.6 1.6 0 0 1 1.6-1.6z',
+      'M9.3 8.7V7a1.6 1.6 0 0 1 1.6-1.6h2.2a1.6 1.6 0 0 1 1.6 1.6v1.7',
+      'M3.6 12.8h16.8',
+    ],
+  },
+  {
+    t: 'Iskolar ng Bataan',
+    // a mortarboard with its tassel
+    d: [
+      'M2.8 9.3 12 5.3l9.2 4-9.2 4z',
+      'M6.5 11v4.2c0 1.5 2.5 2.7 5.5 2.7s5.5-1.2 5.5-2.7V11',
+      'M20.3 10v4.4',
+    ],
+  },
+  {
+    t: 'BHSS',
+    // a verified seal - neutral until the programme's own mark is settled
+    d: [
+      'M12 4.6a7.4 7.4 0 1 1 0 14.8 7.4 7.4 0 0 1 0-14.8z',
+      'M8.7 12.1l2.3 2.3 4.3-4.6',
+    ],
+  },
+  {
+    t: 'EduChild',
+    // an adult and a child standing together
+    d: [
+      'M9.1 7.3a2 2 0 1 1 0 4 2 2 0 1 1 0-4z',
+      'M12 19.6v-4.6a2.9 2.9 0 0 0-2.9-2.9 2.9 2.9 0 0 0-2.9 2.9v4.6',
+      'M16.6 10.3a1.55 1.55 0 1 1 0 3.1 1.55 1.55 0 1 1 0-3.1z',
+      'M18.8 19.6v-3.3a2.2 2.2 0 0 0-2.2-2.2 2.2 2.2 0 0 0-2.2 2.2v3.3',
+    ],
+  },
 ]
 
 const STRATA = [
@@ -57,13 +128,16 @@ const owned = computed(() => props.step >= 3)
     </header>
 
     <ul class="uses" :class="{ on: service }">
-      <li v-for="(u, i) in USES" :key="u" class="use" :style="{ transitionDelay: (i * 55) + 'ms' }">
+      <li v-for="(u, i) in USES" :key="u.t" class="use" :style="{ transitionDelay: (i * 55) + 'ms' }">
+        <svg class="ico" viewBox="0 0 24 24" aria-hidden="true">
+          <path v-for="d in u.d" :key="d" :d="d" />
+        </svg>
+        <span class="lbl">{{ u.t }}</span>
         <svg class="tap" viewBox="0 0 24 24" aria-hidden="true">
           <path d="M5.1 9.3a4.3 4.3 0 0 1 0 5.4" />
           <path d="M9.2 6.4a8.6 8.6 0 0 1 0 11.2" />
           <path d="M13.3 3.5a12.9 12.9 0 0 1 0 17" />
         </svg>
-        <span class="lbl">{{ u }}</span>
       </li>
     </ul>
 
@@ -162,11 +236,12 @@ const owned = computed(() => props.step >= 3)
   padding: 0;
 }
 .use {
+  position: relative;
   display: flex;
   align-items: center;
-  gap: 0.55rem;
+  gap: 0.6rem;
   min-height: 54px;
-  padding: 0.55rem 0.8rem;
+  padding: 0.55rem 1.35rem 0.55rem 0.8rem;
   border: 1px solid var(--g-20);
   border-radius: 11px;
   background: linear-gradient(170deg, var(--g-13), transparent 70%), var(--oppo-bg-2);
@@ -176,24 +251,43 @@ const owned = computed(() => props.step >= 3)
 }
 .uses.on .use { opacity: 1; transform: none; }
 
-.tap {
+/* the programme's own mark - the one thing that differs tile to tile */
+.ico {
   flex: none;
-  width: 19px;
-  height: 19px;
+  width: 23px;
+  height: 23px;
   fill: none;
   stroke: var(--oppo-gold);
-  stroke-width: 1.7;
+  stroke-width: 1.6;
   stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* the shared tap, demoted to a corner mark: identical on all eight */
+.tap {
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  width: 13px;
+  height: 13px;
+  fill: none;
+  stroke: var(--oppo-gold);
+  stroke-width: 2;
+  stroke-linecap: round;
+  opacity: 0.3;
 }
 .uses.on .tap { animation: tap-fade 2.8s ease-in-out infinite; }
 @keyframes tap-fade {
-  0%, 100% { opacity: 0.45; }
-  50%      { opacity: 1; }
+  0%, 100% { opacity: 0.22; }
+  50%      { opacity: 0.6; }
 }
 .lbl {
+  flex: 1;
+  min-width: 0;
   font-size: 1rem;
   font-weight: 600;
   line-height: 1.15;
+  text-wrap: pretty;
   color: var(--oppo-ink-1);
 }
 

@@ -106,24 +106,30 @@ What the law asks of this Office &#8212; and how that ask has changed.
 
 ---
 layout: figure
-clicks: 3
+clicks: 2
 ---
 
-<div class="oppo-eyebrow">II.1 &#183; Legal mandate</div>
+<div class="fig-head is-center">
 
-# Four functions, one foundation
+<div class="oppo-eyebrow">II.1 &#183; Four mandated functions</div>
+
+# Mandate and PPD-POA Strategic Framework
+
+</div>
+
+<div class="fig-banner"><GlobalAlignment /></div>
 
 <div class="fig"><MandatePillars :step="$clicks" /></div>
 
 <!--
-Under the Local Government Code, the Office of the Provincial Population Officer is mandated to:
+The Office of the Provincial Population Officer is mandated to:
 
 1. Integrate population development principles into provincial policies, strategies, and development plans.
 2. Promote responsible parenthood and family well-being.
 3. Implement localized capacity-building initiatives.
 4. Maintain a comprehensive population databank for evidence-based provincial planning and service implementation.
 
-CLICK 1 — the four marks land, left to right. CLICK 2 — each one is spelled out. CLICK 3 — the foundation lights: all four stand on one mandate, the Local Government Code of 1991.
+CLICK 1 — the four marks land, left to right. CLICK 2 — each one is spelled out, and the marks come alive.
 -->
 
 ---
@@ -131,9 +137,13 @@ layout: figure
 clicks: 3
 ---
 
-<div class="oppo-eyebrow">II.2 &#183; The national framework</div>
+<div class="fig-head is-center">
 
-# Eight strategies, one goal
+<div class="oppo-eyebrow">II.2 &#183; Philippine Development Plan 2023&ndash;2028</div>
+
+# The PPD-POA&#8217;s Goal
+
+</div>
 
 <div class="fig"><PpdPoaFramework :step="$clicks" /></div>
 
@@ -371,7 +381,7 @@ clicks: 2
 Accomplishments as of August 2026:
 
 • Would-be couples provided with Pre-Marriage Orientation and Counseling: 1,700
-• Persons reached through Adolescent Health and Development activities: 1,760 adolescents; 1,813 adults and parents; 1,813 service providers
+• Persons reached through Adolescent Health and Development activities: 11,760 adolescents; 1,813 adults and parents; 1,944 service providers
 • Teen Information Centers established: 103
 • Persons provided with Responsible Parenthood Services: 11,221
 • KATROPA: 5 sessions conducted, with 119 new participants
@@ -394,11 +404,13 @@ clicks: 3
 <!--
 Before the system, the registry. Citizen registration under the Bataeño Pass is now running across all twelve LGUs of Bataan — eleven municipalities and the City of Balanga.
 
-CLICK 1 — the reach, ranked. Every city and municipality is represented. Mariveles leads with 51,006 registrants; Dinalupihan follows with 28,911, and the City of Balanga with 26,251. The "Others" row holds the small number of registrants recorded outside the twelve LGUs.
+CLICK 1 — the reach, ranked by headcount. Every city and municipality is represented. Mariveles leads with 51,006 registrants; Dinalupihan follows with 28,911, and the City of Balanga with 26,251. The "Others" row holds the small number of registrants recorded outside the twelve LGUs.
 
-CLICK 2 — the total: 241,984 registrants province-wide as of August 2026.
+CLICK 2 — the figure that matters. 241,984 registered individuals against a total household population target of 887,772. That is a current population reach of 27.26 percent — roughly one Bataeño in four. The task ahead is the other three.
 
-CLICK 3 — read the concentration honestly. Mariveles alone carries about one registrant in five, and the three largest LGUs account for roughly 44 percent of the registry. That tells us where the remaining registration effort has to go — and it is why the next slide matters: this registry is only useful if the system behind it can serve every one of these towns equally.
+CLICK 3 — now the honest reading. The three biggest registries are simply the three biggest towns, so headcount on its own tells us nothing. Measured against each LGU's own population the ranking breaks apart: Bagac, among the smallest, has the deepest reach at 34.3 percent, and Mariveles holds up at 32.7 percent. But Dinalupihan — second in the province by headcount — has the lowest coverage of all twelve at 23.3 percent, with Hermosa and the City of Balanga just above it. The dashed line is the provincial rate; five LGUs sit above it, seven below.
+
+That changes where the next registration push goes. It is not simply "the small towns" — it is the large towns whose volume has been flattering them. And it is why the next slide matters: this registry is only useful if the system behind it can serve every one of these towns equally.
 
 Registration is continuing; these figures move weekly.
 -->

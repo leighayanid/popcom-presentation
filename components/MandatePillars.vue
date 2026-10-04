@@ -1,10 +1,10 @@
 <script setup lang="ts">
 /**
- * The legal mandate, drawn as four icon medallions standing on one
- * foundation — the Local Government Code.
+ * The legal mandate, drawn as four icon medallions over the province they
+ * serve.
  * step 1 - the four marks land, left to right
- * step 2 - the mandated function is spelled out under each
- * step 3 - the foundation lights and the marks come alive
+ * step 2 - the mandated function is spelled out under each, and the marks
+ *          come alive
  */
 import { computed } from 'vue'
 
@@ -12,7 +12,6 @@ const props = withDefaults(defineProps<{ step?: number }>(), { step: 0 })
 
 const risen = computed(() => props.step >= 1)
 const worded = computed(() => props.step >= 2)
-const alive = computed(() => props.step >= 3)
 
 // `ink` overrides `color` for the wording where the fill-role colour is too
 // bright to carry text on paper (see the -gold / -gold-fig split in the tokens)
@@ -57,18 +56,12 @@ const tailTop = (f: Fn) => LEAD_TOP + f.lead.length * LEAD_STEP + 3
 
 <template>
   <div class="mp">
-    <svg viewBox="0 0 1000 400" class="stage" role="img"
-      aria-label="The four functions the Local Government Code mandates of the Office of the Provincial Population Officer">
+    <svg viewBox="0 0 1000 356" class="stage" role="img"
+      aria-label="The four functions mandated of the Office of the Provincial Population Officer">
       <defs>
         <clipPath id="mp-panel">
-          <rect x="8" y="4" width="984" height="392" rx="22" />
+          <rect x="8" y="4" width="984" height="348" rx="22" />
         </clipPath>
-
-        <linearGradient id="mp-base" x1="0" y1="0" x2="1" y2="0">
-          <stop offset="0%" stop-color="var(--g-07)" />
-          <stop offset="50%" stop-color="var(--g-20)" />
-          <stop offset="100%" stop-color="var(--g-07)" />
-        </linearGradient>
 
         <!-- the four marks, drawn once on a 24-unit grid -->
         <g id="mp-policy">
@@ -111,27 +104,29 @@ const tailTop = (f: Fn) => LEAD_TOP + f.lead.length * LEAD_STEP + 3
 
       <!-- ============ backdrop: the provincial ground ============ -->
       <g class="backdrop" aria-hidden="true">
-        <rect x="8" y="4" width="984" height="392" rx="22" fill="var(--oppo-bg-0)" opacity="0.45" />
+        <rect x="8" y="4" width="984" height="348" rx="22" fill="var(--oppo-bg-0)" opacity="0.45" />
         <g clip-path="url(#mp-panel)">
           <circle cx="104" cy="72" r="120" fill="var(--s2-45)" opacity="0.09" />
           <circle cx="912" cy="60" r="104" fill="var(--g-07)" opacity="0.7" />
           <!-- a low civic skyline: the province the mandate sits over -->
-          <g fill="var(--h-10)" opacity="0.5" transform="translate(0 26)">
+          <g fill="var(--h-10)" opacity="0.5" transform="translate(0 -18)">
             <path d="M96 318h10v-44l5-9 5 9v44h10v12H96z" />
             <path d="M212 330v-28h46v-18l23-13 23 13v18h46v28z" />
             <path d="M640 330v-34h18v-12h12v12h18v34z" />
             <path d="M742 330v-40h14v-10h12v10h14v40z" />
             <path d="M826 330v-26h58v-14h12v14h22v26z" />
           </g>
-          <path d="M0 352c132-24 192 16 320 5s176-36 310-27 180 38 370 9v61H0z" fill="var(--s2-45)" opacity="0.12" />
-          <path d="M0 368c148-20 208 13 332 4s182-29 306-22 196 31 362 5v45H0z" fill="var(--g-16)" opacity="0.45" />
+          <g transform="translate(0 -44)">
+            <path d="M0 352c132-24 192 16 320 5s176-36 310-27 180 38 370 9v61H0z" fill="var(--s2-45)" opacity="0.12" />
+            <path d="M0 368c148-20 208 13 332 4s182-29 306-22 196 31 362 5v45H0z" fill="var(--g-16)" opacity="0.45" />
+          </g>
         </g>
-        <rect x="8" y="4" width="984" height="392" rx="22" fill="none" stroke="var(--h-10)" />
+        <rect x="8" y="4" width="984" height="348" rx="22" fill="none" stroke="var(--h-10)" />
       </g>
 
       <!-- ============ the hairlines between the four ============ -->
       <g class="rules" :class="{ on: risen }">
-        <line v-for="x in DIVIDER" :key="x" :x1="x" y1="52" :x2="x" y2="286"
+        <line v-for="x in DIVIDER" :key="x" :x1="x" y1="52" :x2="x" y2="272"
           stroke="var(--h-14)" stroke-width="1" />
       </g>
 
@@ -141,7 +136,7 @@ const tailTop = (f: Fn) => LEAD_TOP + f.lead.length * LEAD_STEP + 3
         <g class="mark" :class="{ on: risen }" :style="{ transitionDelay: (140 + i * 130) + 'ms' }">
           <ellipse :cx="CX[i] - 10" cy="82" rx="54" ry="45" :fill="f.color" opacity="0.1"
             :transform="'rotate(-16 ' + (CX[i] - 10) + ' 82)'" />
-          <circle class="halo" :class="{ on: alive }" :cx="CX[i]" :cy="DISC_CY" :r="R"
+          <circle class="halo" :class="{ on: worded }" :cx="CX[i]" :cy="DISC_CY" :r="R"
             fill="none" :stroke="f.color" stroke-width="2"
             :style="{ animationDelay: (i * 0.55) + 's' }" />
           <circle :cx="CX[i]" :cy="DISC_CY" :r="R" :fill="f.color" fill-opacity="0.16"
@@ -162,24 +157,12 @@ const tailTop = (f: Fn) => LEAD_TOP + f.lead.length * LEAD_STEP + 3
           </text>
         </g>
       </g>
-
-      <!-- ============ the one foundation ============ -->
-      <g class="base" :class="{ on: alive }">
-        <rect x="120" y="316" width="760" height="46" rx="13" fill="url(#mp-base)"
-          stroke="var(--g-45)" stroke-width="1.2" />
-        <text x="500" y="338" text-anchor="middle" class="base-t">
-          LOCAL GOVERNMENT CODE OF 1991 &#183; REPUBLIC ACT NO. 7160
-        </text>
-        <text x="500" y="353" text-anchor="middle" class="base-s">
-          The one mandate all four functions stand on
-        </text>
-      </g>
     </svg>
 
     <div class="foot">
       <span class="oppo-tag">LEGAL MANDATE</span>
       <span class="oppo-fig-note">
-        What the Code asks of the Office of the Provincial Population Officer &#8212;
+        What this Office is mandated to do &#8212;
         <strong>integrate</strong>, <strong>promote</strong>, <strong>implement</strong>, <strong>maintain</strong>.
       </span>
     </div>
@@ -218,10 +201,6 @@ const tailTop = (f: Fn) => LEAD_TOP + f.lead.length * LEAD_STEP + 3
 .lead { font-size: 16px; font-weight: 750; letter-spacing: 0.005em; }
 .tail { font-size: 14px; fill: var(--oppo-ink-2); }
 
-.base { opacity: 0.25; transition: opacity 620ms ease; }
-.base.on { opacity: 1; }
-.base-t { font-size: 13px; font-weight: 750; letter-spacing: 0.17em; fill: var(--oppo-gold); }
-.base-s { font-size: 11.5px; letter-spacing: 0.07em; fill: var(--oppo-ink-2); }
 
 @media (prefers-reduced-motion: reduce) {
   .halo.on { animation: none; }
